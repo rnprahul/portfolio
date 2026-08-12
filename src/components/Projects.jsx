@@ -15,18 +15,18 @@ export function Projects() {
   };
 
   return (
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Practical Applications</span>
-          <h2 class="section-title">Projects Showcase</h2>
+    <section className="section" id="projects">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-subtitle">Practical Applications</span>
+          <h2 className="section-title">Projects Showcase</h2>
         </div>
 
         {/* FEATURED SPOTLIGHT: KITCHENCONNECT */}
-        <div class="glass-card featured-spotlight" style={{ padding: '2.5rem' }}>
+        <div className="glass-card featured-spotlight">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.2rem', marginBottom: '1.2rem' }}>
             <div>
-              <span class="cmd-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
+              <span className="cmd-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 <Star size={14} fill="currentColor" /> PRIMARY FEATURED PROJECT
               </span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', fontWeight: '800', marginTop: '0.6rem', marginBottom: '0.4rem' }}>
@@ -37,13 +37,13 @@ export function Projects() {
               </p>
             </div>
             
-            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+            <div className="spotlight-header-actions" style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
               {featuredProject.liveDemo && (
-                <a href={featuredProject.liveDemo} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <a href={featuredProject.liveDemo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Live Demo <ExternalLink size={16} />
                 </a>
               )}
-              <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                 GitHub Repository <Github size={16} />
               </a>
             </div>
@@ -58,12 +58,12 @@ export function Projects() {
             <h4 style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.6rem', fontFamily: 'var(--font-code)' }}>
               Request Status Lifecycle
             </h4>
-            <div class="workflow-pipeline">
-              <span class="workflow-step step-pending">1. Pending</span>
+            <div className="workflow-pipeline">
+              <span className="workflow-step step-pending">1. Pending</span>
               <ArrowRight size={14} style={{ color: 'var(--text-dim)' }} />
-              <span class="workflow-step step-progress">2. Shopping in Progress</span>
+              <span className="workflow-step step-progress">2. Shopping in Progress</span>
               <ArrowRight size={14} style={{ color: 'var(--text-dim)' }} />
-              <span class="workflow-step step-completed">3. Purchase Completed</span>
+              <span className="workflow-step step-completed">3. Purchase Completed</span>
             </div>
           </div>
 
@@ -71,14 +71,14 @@ export function Projects() {
           <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>
             Role-Based Dashboard Workflows
           </h4>
-          <div class="roles-grid">
+          <div className="roles-grid">
             {featuredProject.roles.map((r, idx) => (
-              <div key={idx} class="role-card">
-                <div class="role-title">
+              <div key={idx} className="role-card">
+                <div className="role-title">
                   {getRoleIcon(r.icon)}
                   {r.role}
                 </div>
-                <ul class="role-list">
+                <ul className="role-list">
                   {r.responsibilities.map((resp, respIdx) => (
                     <li key={respIdx}>{resp}</li>
                   ))}
@@ -94,7 +94,7 @@ export function Projects() {
             </h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
               {featuredProject.techStack.map((tech, techIdx) => (
-                <span key={techIdx} class="tag-pill" style={{ background: 'rgba(99, 102, 241, 0.1)', borderColor: 'rgba(99, 102, 241, 0.25)' }}>
+                <span key={techIdx} className="tag-pill" style={{ background: 'rgba(99, 102, 241, 0.1)', borderColor: 'rgba(99, 102, 241, 0.25)' }}>
                   {tech}
                 </span>
               ))}
@@ -108,9 +108,9 @@ export function Projects() {
             Secondary Projects
           </h3>
 
-          <div class="secondary-projects-grid">
+          <div className="secondary-projects-grid">
             {secondaryProjects.map((project, idx) => (
-              <div key={idx} class="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div key={idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.6rem' }}>
                     {project.name}
@@ -121,13 +121,13 @@ export function Projects() {
                   
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
                     {project.techStack.map((t, tIdx) => (
-                      <span key={tIdx} class="tag-pill">{t}</span>
+                      <span key={tIdx} className="tag-pill">{t}</span>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
                     View Code on GitHub <Github size={16} />
                   </a>
                 </div>
@@ -139,3 +139,4 @@ export function Projects() {
     </section>
   );
 }
+

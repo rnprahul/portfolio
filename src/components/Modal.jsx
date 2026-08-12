@@ -18,13 +18,13 @@ export function Modal({ isOpen, onClose }) {
   };
 
   return (
-    <div class={`modal-overlay ${isOpen ? 'active' : ''}`}>
-      <div class="glass-card modal-box">
-        <button class="modal-close" onClick={onClose}>
+    <div className={`modal-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}>
+      <div className="glass-card modal-box" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
 
-        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', marginBottom: '0.4rem' }} class="gradient-text">
+        <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', marginBottom: '0.4rem' }} className="gradient-text">
           Fast-Track Inquiry
         </h3>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
@@ -41,11 +41,11 @@ export function Modal({ isOpen, onClose }) {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <div class="form-group">
-              <label class="form-label">Your Name</label>
+            <div className="form-group">
+              <label className="form-label">Your Name</label>
               <input 
                 type="text" 
-                class="form-input" 
+                className="form-input" 
                 placeholder="e.g. Recruiter / Hiring Manager" 
                 value={formState.name}
                 onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -53,11 +53,11 @@ export function Modal({ isOpen, onClose }) {
               />
             </div>
 
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
+            <div className="form-group">
+              <label className="form-label">Email Address</label>
               <input 
                 type="email" 
-                class="form-input" 
+                className="form-input" 
                 placeholder="company.email@domain.com" 
                 value={formState.email}
                 onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -65,10 +65,10 @@ export function Modal({ isOpen, onClose }) {
               />
             </div>
 
-            <div class="form-group">
-              <label class="form-label">Role or Project Details</label>
+            <div className="form-group">
+              <label className="form-label">Role or Project Details</label>
               <textarea 
-                class="form-textarea" 
+                className="form-textarea" 
                 rows={3}
                 placeholder="Briefly describe the software development role or contract..." 
                 value={formState.details}
@@ -77,7 +77,7 @@ export function Modal({ isOpen, onClose }) {
               ></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+            <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
               Submit Priority Request <Send size={16} />
             </button>
           </form>
@@ -86,3 +86,4 @@ export function Modal({ isOpen, onClose }) {
     </div>
   );
 }
+

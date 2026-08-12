@@ -50,30 +50,30 @@ export function Hero({ onOpenModal }) {
   }, []);
 
   return (
-    <section class="section hero-section" id="hero">
-      <div class="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div class="status-badge">
-          <span class="status-dot"></span>
+    <section className="section hero-section" id="hero">
+      <div className="container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="status-badge">
+          <span className="status-dot"></span>
           {personal.statusBadge}
         </div>
 
-        <h1 class="hero-title" style={{ maxWidth: '900px', margin: '0 auto 1.2rem' }}>
-          Hi, I'm <span class="gradient-text">{personal.name}</span><br />
-          <span class="typing-container">{typingText}</span>
+        <h1 className="hero-title" style={{ maxWidth: '900px', margin: '0 auto 1.2rem' }}>
+          Hi, I'm <span className="gradient-text">{personal.name}</span><br />
+          <span className="typing-container">{typingText}</span>
         </h1>
 
-        <p class="hero-description" style={{ maxWidth: '720px', margin: '0 auto 2.2rem' }}>
+        <p className="hero-description" style={{ maxWidth: '720px', margin: '0 auto 2.2rem' }}>
           BCA Graduate & Software Developer building practical, user-focused web applications with <strong>React</strong>, <strong>JavaScript</strong>, <strong>Python</strong>, <strong>SQL</strong>, <strong>MongoDB</strong>, and <strong>Firebase</strong>.
         </p>
 
-        <div class="hero-buttons" style={{ justifyContent: 'center' }}>
-          <a href="#projects" class="btn btn-primary">
+        <div className="hero-buttons">
+          <a href="#projects" className="btn btn-primary">
             View Projects <ArrowRight size={18} />
           </a>
-          <a href="#contact" class="btn btn-secondary">
+          <a href="#contact" className="btn btn-secondary">
             Contact Me
           </a>
-          <button onClick={onOpenModal} class="btn btn-outline">
+          <button onClick={onOpenModal} className="btn btn-outline">
             <Sparkles size={16} /> Fast Inquiry
           </button>
         </div>
@@ -81,3 +81,4 @@ export function Hero({ onOpenModal }) {
     </section>
   );
 }
+

@@ -3,15 +3,16 @@ import { portfolioData } from '../data/portfolioData';
 
 export function StatsRow() {
   return (
-    <div class="container">
-      <div class="stats-grid">
+    <div className="container">
+      <div className="stats-grid">
         {portfolioData.stats.map((stat, idx) => (
-          <div key={idx} class="glass-card stat-card">
-            <div class="stat-number gradient-text">{stat.value}{stat.suffix}</div>
-            <div class="stat-label">{stat.label}</div>
+          <div key={idx} className="glass-card stat-card">
+            <div className="stat-number gradient-text">{stat.value}{stat.suffix}</div>
+            <div className="stat-label">{stat.label}</div>
           </div>
         ))}
       </div>
     </div>
   );
 }
+

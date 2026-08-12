@@ -176,28 +176,28 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
   };
 
   return (
-    <section class="section" id="terminal">
-      <div class="container">
-        <div class="section-header" style={{ marginBottom: '2rem' }}>
-          <span class="section-subtitle">Interactive Code Runner</span>
-          <h2 class="section-title">Developer Command Line</h2>
+    <section className="section" id="terminal">
+      <div className="container">
+        <div className="section-header" style={{ marginBottom: '2rem' }}>
+          <span className="section-subtitle">Interactive Code Runner</span>
+          <h2 className="section-title">Developer Command Line</h2>
         </div>
 
-        <div class={`terminal-window ${isExecuting ? 'executing' : ''}`}>
+        <div className={`terminal-window ${isExecuting ? 'executing' : ''}`}>
           {/* Header Bar with profile.js & contact.json File Tabs */}
-          <div class="terminal-header">
-            <div class="terminal-buttons">
-              <span class="btn-dot dot-close"></span>
-              <span class="btn-dot dot-minimize"></span>
-              <span class="btn-dot dot-maximize"></span>
+          <div className="terminal-header">
+            <div className="terminal-buttons">
+              <span className="btn-dot dot-close"></span>
+              <span className="btn-dot dot-minimize"></span>
+              <span className="btn-dot dot-maximize"></span>
             </div>
 
             {/* File Tabs */}
-            <div class="file-tabs-bar">
+            <div className="file-tabs-bar">
               {fileTemplates.map(file => (
                 <button
                   key={file.id}
-                  class={`file-tab ${activeFileId === file.id ? 'active' : ''}`}
+                  className={`file-tab ${activeFileId === file.id ? 'active' : ''}`}
                   onClick={() => {
                     setActiveFileId(file.id);
                     setLines([]);
@@ -212,13 +212,13 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
 
             {/* Run Button */}
             <button 
-              class={`run-action-btn ${isExecuting ? 'running' : ''}`} 
+              className={`run-action-btn ${isExecuting ? 'running' : ''}`} 
               onClick={handleRunScript}
               disabled={isExecuting}
             >
               {isExecuting ? (
                 <>
-                  <RotateCw size={13} class="spinner-icon" /> RUNNING...
+                  <RotateCw size={13} className="spinner-icon" /> RUNNING...
                 </>
               ) : (
                 <>
@@ -229,20 +229,21 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
           </div>
 
           {/* Compact Code Viewer Pane */}
-          <div class="code-editor-pane">
-            <pre class="code-pre">
+          <div className="code-editor-pane">
+            <pre className="code-pre">
               <code>{activeFile.code}</code>
             </pre>
           </div>
 
           {/* Terminal Console Output */}
-          <div class="terminal-body" ref={terminalBodyRef}>
+          <div className="terminal-body" ref={terminalBodyRef}>
             {lines.map((line, idx) => (
-              <div key={idx} class="terminal-line">
+              <div key={idx} className="terminal-line">
                 {line.type === 'user' ? (
                   <>
-                    <span class="terminal-prompt">guest@rahul-dev:~$</span>
-                    <span class="user-cmd">{line.text}</span>
+                    <span className="terminal-prompt terminal-prompt-full">guest@rahul-dev:~$</span>
+                    <span className="terminal-prompt terminal-prompt-short" style={{ display: 'none' }}>~$</span>
+                    <span className="user-cmd">{line.text}</span>
                   </>
                 ) : line.type === 'runResult' ? (
                   <pre style={{ color: '#10b981', fontFamily: 'var(--font-code)', whiteSpace: 'pre-wrap' }}>
@@ -256,17 +257,18 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
 
             {/* Live Character-by-Character Typewriter Output */}
             {isExecuting && (
-              <div class="terminal-line">
+              <div className="terminal-line">
                 <pre style={{ color: '#10b981', fontFamily: 'var(--font-code)', whiteSpace: 'pre-wrap' }}>
-                  {typingOutput}<span class="typewriter-cursor"></span>
+                  {typingOutput}<span className="typewriter-cursor"></span>
                 </pre>
               </div>
             )}
           </div>
 
           {/* Interactive Command Input Line */}
-          <div class="terminal-input-row">
-            <span class="terminal-prompt">guest@rahul-dev:~$</span>
+          <div className="terminal-input-row">
+            <span className="terminal-prompt terminal-prompt-full">guest@rahul-dev:~$</span>
+            <span className="terminal-prompt terminal-prompt-short" style={{ display: 'none' }}>~$</span>
             <input 
               type="text" 
               id="terminalInput" 
@@ -283,3 +285,4 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
     </section>
   );
 }
+

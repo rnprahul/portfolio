@@ -6,9 +6,9 @@ export function Footer() {
   const { socialLinks } = portfolioData.personal;
 
   return (
-    <footer class="footer">
-      <div class="container footer-content">
-        <div>
+    <footer className="footer">
+      <div className="container footer-content">
+        <div style={{ marginBottom: '0.8rem' }}>
           © 2026 {portfolioData.personal.name}. Built with React & Vite.
         </div>
 
@@ -33,3 +33,4 @@ export function Footer() {
     </footer>
   );
 }
+

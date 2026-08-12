@@ -26,16 +26,16 @@ export function Contact({ onOpenModal }) {
   ];
 
   return (
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Communication</span>
-          <h2 class="section-title">Get In Touch</h2>
+    <section className="section" id="contact">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-subtitle">Communication</span>
+          <h2 className="section-title">Get In Touch</h2>
         </div>
 
-        <div class="contact-grid">
+        <div className="contact-grid">
           {/* Contact Details Glass Card */}
-          <div class="glass-card">
+          <div className="glass-card">
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: '700', marginBottom: '1.5rem' }}>
               Direct Contact & Connect
             </h3>
@@ -47,7 +47,7 @@ export function Contact({ onOpenModal }) {
               </div>
               <div>
                 <div style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>Email Address</div>
-                <a href={`mailto:${socialLinks.email}`} style={{ color: 'var(--accent-color)', fontWeight: '600', textDecoration: 'underline', fontSize: '0.98rem' }}>
+                <a href={`mailto:${socialLinks.email}`} style={{ color: 'var(--accent-color)', fontWeight: '600', textDecoration: 'underline', fontSize: '0.98rem', wordBreak: 'break-all' }}>
                   {socialLinks.email}
                 </a>
               </div>
@@ -89,9 +89,9 @@ export function Contact({ onOpenModal }) {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="glass-card"
+                    className="glass-card"
                     style={{
-                      padding: '0.75rem',
+                      padding: '0.65rem 0.85rem',
                       borderRadius: 'var(--radius-sm)',
                       color: 'var(--text-main)',
                       display: 'inline-flex',
@@ -110,13 +110,13 @@ export function Contact({ onOpenModal }) {
               </div>
             </div>
 
-            <button onClick={onOpenModal} class="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
+            <button onClick={onOpenModal} className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
               <Sparkles size={16} /> Open Fast-Track Priority Modal
             </button>
           </div>
 
           {/* Contact Message Form */}
-          <div class="glass-card">
+          <div className="glass-card">
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: '700', marginBottom: '1.2rem' }}>
               Send Message
             </h3>
@@ -131,12 +131,12 @@ export function Contact({ onOpenModal }) {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <div class="form-group">
-                  <label class="form-label" htmlFor="name">Your Name</label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="name">Your Name</label>
                   <input 
                     type="text" 
                     id="name" 
-                    class="form-input" 
+                    className="form-input" 
                     placeholder="e.g. Hiring Manager / Recruiter"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -144,12 +144,12 @@ export function Contact({ onOpenModal }) {
                   />
                 </div>
 
-                <div class="form-group">
-                  <label class="form-label" htmlFor="email">Email Address</label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="email">Email Address</label>
                   <input 
                     type="email" 
                     id="email" 
-                    class="form-input" 
+                    className="form-input" 
                     placeholder="e.g. recruiter@company.com"
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -157,11 +157,11 @@ export function Contact({ onOpenModal }) {
                   />
                 </div>
 
-                <div class="form-group">
-                  <label class="form-label" htmlFor="message">Message</label>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="message">Message</label>
                   <textarea 
                     id="message" 
-                    class="form-textarea" 
+                    className="form-textarea" 
                     rows={4}
                     placeholder="Write your message or software development role inquiry..."
                     value={formState.message}
@@ -170,7 +170,7 @@ export function Contact({ onOpenModal }) {
                   ></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                   Send Message <Send size={16} />
                 </button>
               </form>
@@ -181,3 +181,4 @@ export function Contact({ onOpenModal }) {
     </section>
   );
 }
+

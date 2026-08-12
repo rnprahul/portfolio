@@ -49,8 +49,8 @@ export function App() {
       <ParticlesBg />
 
       {/* Ambient Background Glow Orbs */}
-      <div class="ambient-orb orb-1"></div>
-      <div class="ambient-orb orb-2"></div>
+      <div className="ambient-orb orb-1"></div>
+      <div className="ambient-orb orb-2"></div>
 
       {/* Sticky Glass Navbar */}
       <Navbar onOpenModal={() => setIsModalOpen(true)} />
@@ -74,3 +74,4 @@ export function App() {
 }
 
 export default App;
+

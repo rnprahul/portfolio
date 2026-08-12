@@ -6,15 +6,15 @@ export function About() {
   const { personal } = portfolioData;
 
   return (
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Background</span>
-          <h2 class="section-title">About Me</h2>
+    <section className="section" id="about">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-subtitle">Background</span>
+          <h2 className="section-title">About Me</h2>
         </div>
 
-        <div class="glass-card" style={{ maxWidth: '1020px', margin: '0 auto', padding: '2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="glass-card" style={{ maxWidth: '1020px', margin: '0 auto' }}>
+          <div className="about-grid">
             <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--border-hover)', boxShadow: '0 15px 40px -10px var(--accent-glow)' }}>
               <img 
                 src={personal.aboutImage} 
@@ -37,7 +37,7 @@ export function About() {
                 </h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
                   {personal.focusList.map((item, idx) => (
-                    <span key={idx} class="tag-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-main)' }}>
+                    <span key={idx} className="tag-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-main)' }}>
                       <CheckCircle2 size={15} style={{ color: 'var(--accent-color)' }} />
                       {item}
                     </span>
@@ -51,3 +51,4 @@ export function About() {
     </section>
   );
 }
+

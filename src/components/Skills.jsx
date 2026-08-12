@@ -14,16 +14,16 @@ export function Skills() {
   };
 
   return (
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Technical Capabilities</span>
-          <h2 class="section-title">Current Tech Stack</h2>
+    <section className="section" id="skills">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-subtitle">Technical Capabilities</span>
+          <h2 className="section-title">Current Tech Stack</h2>
         </div>
 
-        <div class="skills-grid">
+        <div className="skills-grid">
           {portfolioData.skills.map((group, idx) => (
-            <div key={idx} class="glass-card">
+            <div key={idx} className="glass-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', marginBottom: '0.4rem' }}>
                 {getCategoryIcon(group.category)}
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '700' }}>{group.category}</h3>
@@ -32,7 +32,7 @@ export function Skills() {
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
                 {group.items.map((item, itemIdx) => (
-                  <span key={itemIdx} class="tag-pill">
+                  <span key={itemIdx} className="tag-pill">
                     {item}
                   </span>
                 ))}
@@ -44,3 +44,4 @@ export function Skills() {
     </section>
   );
 }
+

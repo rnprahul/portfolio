@@ -19,27 +19,27 @@ export function ThemePicker() {
   };
 
   return (
-    <div class="theme-picker" title="Switch Theme Accent Palette">
+    <div className="theme-picker" title="Switch Theme Accent Palette">
       <button 
-        class={`theme-btn ${activeTheme === 'default' ? 'active' : ''}`} 
+        className={`theme-btn ${activeTheme === 'default' ? 'active' : ''}`} 
         data-theme-val="default" 
         onClick={() => setTheme('default')}
         title="Neon Indigo"
       ></button>
       <button 
-        class={`theme-btn ${activeTheme === 'emerald' ? 'active' : ''}`} 
+        className={`theme-btn ${activeTheme === 'emerald' ? 'active' : ''}`} 
         data-theme-val="emerald" 
         onClick={() => setTheme('emerald')}
         title="Cyber Emerald"
       ></button>
       <button 
-        class={`theme-btn ${activeTheme === 'amber' ? 'active' : ''}`} 
+        className={`theme-btn ${activeTheme === 'amber' ? 'active' : ''}`} 
         data-theme-val="amber" 
         onClick={() => setTheme('amber')}
         title="Solar Amber"
       ></button>
       <button 
-        class={`theme-btn ${activeTheme === 'rose' ? 'active' : ''}`} 
+        className={`theme-btn ${activeTheme === 'rose' ? 'active' : ''}`} 
         data-theme-val="rose" 
         onClick={() => setTheme('rose')}
         title="Rose Glow"
@@ -47,3 +47,4 @@ export function ThemePicker() {
     </div>
   );
 }
+
