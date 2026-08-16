@@ -1,16 +1,29 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { ExternalLink, Github, ShieldCheck, HeartHandshake, ShoppingBag, ArrowRight, Star } from 'lucide-react';
+import { 
+  ExternalLink, 
+  Github, 
+  Star, 
+  Brain, 
+  Sparkles, 
+  FileText, 
+  Users, 
+  Activity, 
+  ClipboardList 
+} from 'lucide-react';
 
 export function Projects() {
   const { featuredProject, secondaryProjects } = portfolioData;
 
-  const getRoleIcon = (iconName) => {
+  const getCapabilityIcon = (iconName) => {
     switch (iconName) {
-      case 'ShieldCheck': return <ShieldCheck size={18} style={{ color: 'var(--accent-color)' }} />;
-      case 'HeartHandshake': return <HeartHandshake size={18} style={{ color: '#ec4899' }} />;
-      case 'ShoppingBag': return <ShoppingBag size={18} style={{ color: '#10b981' }} />;
-      default: return <ShieldCheck size={18} />;
+      case 'Brain': return <Brain size={18} style={{ color: 'var(--accent-color)' }} />;
+      case 'Sparkles': return <Sparkles size={18} style={{ color: '#a855f7' }} />;
+      case 'FileText': return <FileText size={18} style={{ color: '#3b82f6' }} />;
+      case 'Users': return <Users size={18} style={{ color: '#10b981' }} />;
+      case 'Activity': return <Activity size={18} style={{ color: '#f59e0b' }} />;
+      case 'ClipboardList': return <ClipboardList size={18} style={{ color: '#ec4899' }} />;
+      default: return <Brain size={18} style={{ color: 'var(--accent-color)' }} />;
     }
   };
 
@@ -22,7 +35,7 @@ export function Projects() {
           <h2 className="section-title">Projects Showcase</h2>
         </div>
 
-        {/* FEATURED SPOTLIGHT: KITCHENCONNECT */}
+        {/* FEATURED SPOTLIGHT: NEXAMIND */}
         <div className="glass-card featured-spotlight">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.2rem', marginBottom: '1.2rem' }}>
             <div>
@@ -43,9 +56,11 @@ export function Projects() {
                   Live Demo <ExternalLink size={16} />
                 </a>
               )}
-              <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                GitHub Repository <Github size={16} />
-              </a>
+              {featuredProject.github && (
+                <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                  GitHub Repository <Github size={16} />
+                </a>
+              )}
             </div>
           </div>
 
@@ -53,39 +68,29 @@ export function Projects() {
             {featuredProject.description}
           </p>
 
-          {/* Workflow Status Pipeline */}
-          <div style={{ marginBottom: '1.8rem' }}>
-            <h4 style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.6rem', fontFamily: 'var(--font-code)' }}>
-              Request Status Lifecycle
-            </h4>
-            <div className="workflow-pipeline">
-              <span className="workflow-step step-pending">1. Pending</span>
-              <ArrowRight size={14} style={{ color: 'var(--text-dim)' }} />
-              <span className="workflow-step step-progress">2. Shopping in Progress</span>
-              <ArrowRight size={14} style={{ color: 'var(--text-dim)' }} />
-              <span className="workflow-step step-completed">3. Purchase Completed</span>
-            </div>
-          </div>
-
-          {/* User Roles Breakdown */}
-          <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>
-            Role-Based Dashboard Workflows
-          </h4>
-          <div className="roles-grid">
-            {featuredProject.roles.map((r, idx) => (
-              <div key={idx} className="role-card">
-                <div className="role-title">
-                  {getRoleIcon(r.icon)}
-                  {r.role}
-                </div>
-                <ul className="role-list">
-                  {r.responsibilities.map((resp, respIdx) => (
-                    <li key={respIdx}>{resp}</li>
-                  ))}
-                </ul>
+          {/* Core Capabilities Breakdown */}
+          {featuredProject.capabilities && (
+            <>
+              <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>
+                Core Capabilities
+              </h4>
+              <div className="capabilities-grid">
+                {featuredProject.capabilities.map((cap, idx) => (
+                  <div key={idx} className="capability-card">
+                    <div className="capability-title">
+                      {getCapabilityIcon(cap.icon)}
+                      {cap.title}
+                    </div>
+                    <ul className="capability-list">
+                      {cap.points.map((pt, ptIdx) => (
+                        <li key={ptIdx}>{pt}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
 
           {/* Tech Stack Pills */}
           <div style={{ marginTop: '1.8rem', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
@@ -112,9 +117,14 @@ export function Projects() {
             {secondaryProjects.map((project, idx) => (
               <div key={idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.6rem' }}>
+                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>
                     {project.name}
                   </h4>
+                  {project.tagline && (
+                    <p style={{ color: 'var(--accent-color)', fontSize: '0.9rem', fontFamily: 'var(--font-code)', marginBottom: '0.6rem' }}>
+                      {project.tagline}
+                    </p>
+                  )}
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: '1.6', marginBottom: '1.4rem' }}>
                     {project.description}
                   </p>
@@ -126,10 +136,21 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
-                    View Code on GitHub <Github size={16} />
-                  </a>
+                <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                  {project.liveDemo ? (
+                    <>
+                      <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
+                        Live Demo <ExternalLink size={16} />
+                      </a>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ flex: 1, justifyContent: 'center' }}>
+                        GitHub <Github size={16} />
+                      </a>
+                    </>
+                  ) : (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
+                      View Code on GitHub <Github size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

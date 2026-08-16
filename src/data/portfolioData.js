@@ -21,7 +21,7 @@ export const portfolioData = {
 
   stats: [
     { label: "Degree Completed", value: "BCA", suffix: "" },
-    { label: "Primary Project", value: "KitchenConnect", suffix: "" },
+    { label: "Primary Project", value: "NexaMind", suffix: "" },
     { label: "Core Expertise", value: "Software & Web Dev", suffix: "" },
     { label: "Internship", value: "MERN Stack", suffix: "" }
   ],
@@ -50,55 +50,85 @@ export const portfolioData = {
   ],
 
   featuredProject: {
-    id: "kitchen-connect",
-    name: "KitchenConnect",
-    tagline: "Role-Based Household Kitchen Inventory & Shopping Management Web Application",
-    description: "KitchenConnect is a practical multi-role household web application designed to connect kitchen and supermarket workflows through dedicated, role-specific dashboards. It streamlines how households manage stock levels and fulfill grocery purchases.",
-    techStack: ["React", "Vite", "JavaScript", "Firebase Authentication", "Cloud Firestore", "Bootstrap", "CSS", "Firebase Hosting"],
-    workflow: ["Pending", "Shopping in Progress", "Purchase Completed"],
-    roles: [
+    id: "nexa-mind",
+    name: "NexaMind",
+    tagline: "Enterprise AI Knowledge & Governance Platform",
+    description: "NexaMind is a production-deployed enterprise AI platform designed for organizational knowledge management, AI-assisted insights, document intelligence, role-based administration, system health monitoring, audit activity, and enterprise governance.",
+    techStack: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "Supabase",
+      "Gemini API",
+      "Vercel",
+      "Render"
+    ],
+    capabilities: [
       {
-        role: "Admin Dashboard",
-        icon: "ShieldCheck",
-        responsibilities: [
-          "Manage kitchen items and inventory categories",
-          "Create and review shopping requests",
-          "Monitor overall application activity and stock logs"
+        title: "AI Intelligence",
+        icon: "Brain",
+        points: [
+          "AI-powered enterprise intelligence and insights",
+          "Gemini API integration"
         ]
       },
       {
-        role: "Mother Dashboard",
-        icon: "HeartHandshake",
-        responsibilities: [
-          "View current kitchen items & stock levels",
-          "Select out-of-stock items and create shopping requests",
-          "Track request status and view purchase history",
-          "Receive real-time notifications on purchase completion"
+        title: "Knowledge Assistant",
+        icon: "Sparkles",
+        points: [
+          "AI-assisted interaction with organizational knowledge",
+          "Knowledge-focused workflows"
         ]
       },
       {
-        role: "Father Dashboard",
-        icon: "ShoppingBag",
-        responsibilities: [
-          "View incoming household shopping requests",
-          "Manage active grocery lists and update purchase status",
-          "Mark grocery purchases as completed"
+        title: "Document Management",
+        icon: "FileText",
+        points: [
+          "Manage and analyze enterprise documents",
+          "Document intelligence and knowledge processing"
+        ]
+      },
+      {
+        title: "User & Role Management",
+        icon: "Users",
+        points: [
+          "Role-based access and administration",
+          "Enterprise user directory and governance"
+        ]
+      },
+      {
+        title: "System Health",
+        icon: "Activity",
+        points: [
+          "Monitor application/system health",
+          "Health and operational status monitoring"
+        ]
+      },
+      {
+        title: "Audit Activity",
+        icon: "ClipboardList",
+        points: [
+          "Track important platform activity",
+          "Audit and activity visibility"
         ]
       }
     ],
-    features: [
-      "Role-based authentication & protected routes",
-      "Dedicated Admin, Mother, and Father dashboards",
-      "Real-time Firestore database synchronization",
-      "Shopping request tracking (Pending → In Progress → Completed)",
-      "Purchase history and notification tracking",
-      "Hosted live on Firebase Hosting"
-    ],
-    github: "https://github.com/rnprahul/KitchenConnect",
-    liveDemo: "https://kitchenconnect-eddfd.web.app"
+    github: "https://github.com/rnprahul/NexaMind",
+    liveDemo: "https://nexa-mind-one.vercel.app"
   },
 
   secondaryProjects: [
+    {
+      id: "kitchen-connect",
+      name: "KitchenConnect",
+      tagline: "Role-Based Household Kitchen Inventory & Shopping Management Web Application",
+      description: "KitchenConnect is a practical multi-role household web application designed to connect kitchen and supermarket workflows through dedicated, role-specific dashboards (Admin, Mother, Father). It features real-time Firestore synchronization and shopping request tracking.",
+      techStack: ["React", "Vite", "JavaScript", "Firebase Authentication", "Cloud Firestore", "Bootstrap", "CSS", "Firebase Hosting"],
+      github: "https://github.com/rnprahul/KitchenConnect",
+      liveDemo: "https://kitchenconnect-eddfd.web.app"
+    },
     {
       id: "calculator",
       name: "Calculator",
