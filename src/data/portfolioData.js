@@ -121,6 +121,29 @@ export const portfolioData = {
 
   secondaryProjects: [
     {
+      id: "quickkart",
+      name: "QuickKart",
+      tagline: "Full-Stack E-Commerce Store",
+      description: "QuickKart is a full-stack e-commerce web application with a modern shopping interface, product browsing, category filtering, authentication, cart management, order workflows, and MongoDB-backed product data. The frontend is deployed on Vercel and the Express backend is deployed on Render.",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Mongoose",
+        "REST API",
+        "JWT Authentication",
+        "CORS",
+        "Helmet",
+        "Vercel",
+        "Render"
+      ],
+      github: "https://github.com/rnprahul/CodeAlpha_EcommerceStore",
+      liveDemo: "https://quickkart-six.vercel.app"
+    },
+    {
       id: "kitchen-connect",
       name: "KitchenConnect",
       tagline: "Role-Based Household Kitchen Inventory & Shopping Management Web Application",
