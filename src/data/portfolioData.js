@@ -121,6 +121,28 @@ export const portfolioData = {
 
   secondaryProjects: [
     {
+      id: "taskflow",
+      name: "TaskFlow",
+      tagline: "Full-Stack Project Management Platform",
+      description: "TaskFlow is a full-stack project management web application designed to help users organize projects, manage tasks, collaborate with team members, track progress, and stay updated through notifications and activity tracking. It includes authentication, project and task management, team member workflows, dashboard analytics, and persistent MongoDB-backed data. The frontend is deployed on Vercel and the Express backend is deployed on Render.",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Mongoose",
+        "REST API",
+        "JWT Authentication",
+        "CORS",
+        "Vercel",
+        "Render"
+      ],
+      github: "https://github.com/rnprahul/CodeAlpha_ProjectManagementTool",
+      liveDemo: "https://taskflow-kohl-tau.vercel.app"
+    },
+    {
       id: "quickkart",
       name: "QuickKart",
       tagline: "Full-Stack E-Commerce Store",
