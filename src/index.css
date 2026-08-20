@@ -136,18 +136,22 @@ body {
 }
 
 /* ==========================================================================
-   SLOW, LUXURIOUS SCROLL REVEAL ANIMATION (1.4s SMOOTH FADE & RISE)
+   SMOOTH & LUXURIOUS SCROLL REVEAL TRANSITION ANIMATIONS
    ========================================================================== */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  transform: translateY(40px);
+  filter: blur(2px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .scroll-reveal.reveal-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0px);
 }
 
 .section {

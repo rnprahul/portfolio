@@ -15,55 +15,53 @@ export function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Robust, fail-safe Scroll Reveal Observer for all screen sizes
+    // Dynamic bidirectional Scroll Reveal Observer
     if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.section, .stats-grid').forEach(el => {
+      document.querySelectorAll('.scroll-reveal').forEach(el => {
         el.classList.add('reveal-visible');
       });
       return;
     }
 
-    const observerCallback = (entries, observer) => {
+    const observerCallback = (entries) => {
       entries.forEach(entry => {
-        // Trigger as soon as the element top approaches or enters the viewport
-        if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
-          // Once revealed, unobserve to prevent flickering or disappearing on mobile
-          observer.unobserve(entry.target);
+        } else {
+          // When scrolled past or back up, smoothly re-enable transition when leaving viewport
+          const rect = entry.target.getBoundingClientRect();
+          if (rect.top > window.innerHeight * 0.95 || rect.bottom < 0) {
+            entry.target.classList.remove('reveal-visible');
+          }
         }
       });
     };
 
-    // Use a lightweight threshold and positive root margin for responsive reliability
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px 100px 0px',
-      threshold: 0.01
+      rootMargin: '-40px 0px -60px 0px',
+      threshold: [0, 0.15, 0.3]
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    const targets = document.querySelectorAll('.section, .stats-grid');
+    // Target all major content sections, project cards, and interactive widgets
+    const targets = document.querySelectorAll(
+      '.section:not(#hero), .section-header, .unified-project-card, .skill-cloud-stage, .about-grid, .terminal-window, .contact-grid, .hero-dock-wrapper'
+    );
+
     targets.forEach(target => {
-      // Check if already in/near viewport on initial load
+      target.classList.add('scroll-reveal');
+      // If already in top viewport on initial page load, immediately mark visible
       const rect = target.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 150 && rect.bottom > -50) {
+      if (rect.top < window.innerHeight - 80 && rect.bottom > 80) {
         target.classList.add('reveal-visible');
-      } else {
-        target.classList.add('scroll-reveal');
-        observer.observe(target);
       }
+      observer.observe(target);
     });
 
-    // Fail-safe timeout to ensure all sections are revealed regardless of scroll position or network latency
-    const fallbackTimer = setTimeout(() => {
-      targets.forEach(target => {
-        target.classList.add('reveal-visible');
-      });
-    }, 2000);
-
     return () => {
-      clearTimeout(fallbackTimer);
+      targets.forEach(target => observer.unobserve(target));
       observer.disconnect();
     };
   }, []);
