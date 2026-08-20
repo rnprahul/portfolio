@@ -106,13 +106,125 @@ export const portfolioData = {
     { name: "npm", category: "tools", tier: "tertiary" }
   ],
 
-  latestWork: [
+  projects: [
+    {
+      id: "nexa-mind",
+      name: "NexaMind",
+      tagline: "Enterprise AI Knowledge & Governance Platform",
+      badge: "ENTERPRISE AI",
+      category: "AI Knowledge Platform",
+      description: "NexaMind is a production-deployed enterprise AI platform designed for organizational knowledge management, AI-assisted insights, document intelligence, role-based administration, system health monitoring, audit activity, and enterprise governance.",
+      image: "/assets/nexamind-preview.png",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "Supabase",
+        "Gemini API",
+        "Vercel",
+        "Render"
+      ],
+      highlights: [
+        "Gemini AI-powered enterprise intelligence & interactive knowledge assistant",
+        "Role-based access control, document intelligence & audit activity logging",
+        "System health monitoring telemetry & real-time analytics"
+      ],
+      github: "https://github.com/rnprahul/NexaMind",
+      liveDemo: "https://nexa-mind-one.vercel.app"
+    },
+    {
+      id: "taskflow",
+      name: "TaskFlow",
+      tagline: "Full-Stack Project Management Platform",
+      badge: "FULL STACK",
+      category: "Project & Task Management",
+      description: "TaskFlow is a full-stack project management web application designed to help users organize projects, manage tasks, collaborate with team members, track progress, and stay updated through notifications and activity tracking.",
+      image: "/assets/taskflow-preview.png",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Mongoose",
+        "REST API",
+        "JWT Auth",
+        "Vercel",
+        "Render"
+      ],
+      highlights: [
+        "Complete task lifecycle, member delegation & milestone management",
+        "Real-time activity logs, notification feeds & productivity overview analytics",
+        "Persistent MongoDB Atlas backend with JWT authentication"
+      ],
+      github: "https://github.com/rnprahul/CodeAlpha_ProjectManagementTool",
+      liveDemo: "https://taskflow-kohl-tau.vercel.app"
+    },
+    {
+      id: "quickkart",
+      name: "QuickKart",
+      tagline: "Full-Stack E-Commerce Store",
+      badge: "E-COMMERCE",
+      category: "Full-Stack Shopping Platform",
+      description: "QuickKart is a full-stack e-commerce web application featuring a modern shopping interface, product catalog browsing, multi-criteria filtering, user authentication, interactive cart management, order workflows, and MongoDB-backed product data.",
+      image: "/assets/quickkart-preview.png",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Mongoose",
+        "REST API",
+        "JWT Auth",
+        "Vercel",
+        "Render"
+      ],
+      highlights: [
+        "Dynamic product browsing with live category, rating & price range filtering",
+        "Persistent cart system, checkout workflow & user profile management",
+        "Express REST backend protected by JWT auth, Helmet & CORS"
+      ],
+      github: "https://github.com/rnprahul/CodeAlpha_EcommerceStore",
+      liveDemo: "https://quickkart-six.vercel.app"
+    },
+    {
+      id: "kitchen-connect",
+      name: "KitchenConnect",
+      tagline: "Role-Based Household Kitchen Inventory & Shopping Management",
+      badge: "FIREBASE APP",
+      category: "Household Management Web App",
+      description: "KitchenConnect is a practical multi-role household web application designed to connect kitchen and supermarket workflows through dedicated, role-specific dashboards (Admin, Mother, Father) with real-time Firestore synchronization and shopping request tracking.",
+      image: "/assets/kitchenconnect-preview.png",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "Firebase Auth",
+        "Cloud Firestore",
+        "Bootstrap",
+        "CSS",
+        "Firebase Hosting"
+      ],
+      highlights: [
+        "Role-tailored dashboards for household members with distinct permissions",
+        "Instant real-time sync for pantry inventory, shopping lists & purchase history",
+        "Deployed on Firebase Hosting with Firebase Cloud Firestore backend"
+      ],
+      github: "https://github.com/rnprahul/KitchenConnect",
+      liveDemo: "https://kitchenconnect-eddfd.web.app"
+    },
     {
       id: "westeros-interactive-chronicles",
       name: "Westeros Interactive Chronicles",
       tagline: "Immersive Interactive Archive & Living Citadel Map of Westeros",
-      badge: "LATEST WORK",
-      description: "An immersive interactive archive of Westeros featuring cinematic UI, interactive maps, Great Houses, dragons, and historical exploration.",
+      badge: "INTERACTIVE",
+      category: "Interactive Map & Lore Engine",
+      description: "An immersive interactive archive of Westeros featuring cinematic UI, interactive living Citadel cartography maps, Great Houses lineage, dragon vaults, and historical exploration.",
       image: "/assets/westeros-preview.jpg",
       techStack: [
         "React",
@@ -128,141 +240,6 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/westeros-interactive-chronicles",
       liveDemo: "https://westeros-interactive-chronicles.pages.dev"
-    }
-  ],
-
-  featuredProject: {
-    id: "nexa-mind",
-    name: "NexaMind",
-    tagline: "Enterprise AI Knowledge & Governance Platform",
-    description: "NexaMind is a production-deployed enterprise AI platform designed for organizational knowledge management, AI-assisted insights, document intelligence, role-based administration, system health monitoring, audit activity, and enterprise governance.",
-    techStack: [
-      "React",
-      "Vite",
-      "JavaScript",
-      "Node.js",
-      "Express",
-      "Supabase",
-      "Gemini API",
-      "Vercel",
-      "Render"
-    ],
-    capabilities: [
-      {
-        title: "AI Intelligence",
-        icon: "Brain",
-        points: [
-          "AI-powered enterprise intelligence and insights",
-          "Gemini API integration"
-        ]
-      },
-      {
-        title: "Knowledge Assistant",
-        icon: "Sparkles",
-        points: [
-          "AI-assisted interaction with organizational knowledge",
-          "Knowledge-focused workflows"
-        ]
-      },
-      {
-        title: "Document Management",
-        icon: "FileText",
-        points: [
-          "Manage and analyze enterprise documents",
-          "Document intelligence and knowledge processing"
-        ]
-      },
-      {
-        title: "User & Role Management",
-        icon: "Users",
-        points: [
-          "Role-based access and administration",
-          "Enterprise user directory and governance"
-        ]
-      },
-      {
-        title: "System Health",
-        icon: "Activity",
-        points: [
-          "Monitor application/system health",
-          "Health and operational status monitoring"
-        ]
-      },
-      {
-        title: "Audit Activity",
-        icon: "ClipboardList",
-        points: [
-          "Track important platform activity",
-          "Audit and activity visibility"
-        ]
-      }
-    ],
-    github: "https://github.com/rnprahul/NexaMind",
-    liveDemo: "https://nexa-mind-one.vercel.app"
-  },
-
-  secondaryProjects: [
-    {
-      id: "taskflow",
-      name: "TaskFlow",
-      tagline: "Full-Stack Project Management Platform",
-      description: "TaskFlow is a full-stack project management web application designed to help users organize projects, manage tasks, collaborate with team members, track progress, and stay updated through notifications and activity tracking. It includes authentication, project and task management, team member workflows, dashboard analytics, and persistent MongoDB-backed data. The frontend is deployed on Vercel and the Express backend is deployed on Render.",
-      techStack: [
-        "React",
-        "Vite",
-        "JavaScript",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Mongoose",
-        "REST API",
-        "JWT Authentication",
-        "CORS",
-        "Vercel",
-        "Render"
-      ],
-      github: "https://github.com/rnprahul/CodeAlpha_ProjectManagementTool",
-      liveDemo: "https://taskflow-kohl-tau.vercel.app"
-    },
-    {
-      id: "quickkart",
-      name: "QuickKart",
-      tagline: "Full-Stack E-Commerce Store",
-      description: "QuickKart is a full-stack e-commerce web application with a modern shopping interface, product browsing, category filtering, authentication, cart management, order workflows, and MongoDB-backed product data. The frontend is deployed on Vercel and the Express backend is deployed on Render.",
-      techStack: [
-        "React",
-        "Vite",
-        "JavaScript",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Mongoose",
-        "REST API",
-        "JWT Authentication",
-        "CORS",
-        "Helmet",
-        "Vercel",
-        "Render"
-      ],
-      github: "https://github.com/rnprahul/CodeAlpha_EcommerceStore",
-      liveDemo: "https://quickkart-six.vercel.app"
-    },
-    {
-      id: "kitchen-connect",
-      name: "KitchenConnect",
-      tagline: "Role-Based Household Kitchen Inventory & Shopping Management Web Application",
-      description: "KitchenConnect is a practical multi-role household web application designed to connect kitchen and supermarket workflows through dedicated, role-specific dashboards (Admin, Mother, Father). It features real-time Firestore synchronization and shopping request tracking.",
-      techStack: ["React", "Vite", "JavaScript", "Firebase Authentication", "Cloud Firestore", "Bootstrap", "CSS", "Firebase Hosting"],
-      github: "https://github.com/rnprahul/KitchenConnect",
-      liveDemo: "https://kitchenconnect-eddfd.web.app"
-    },
-    {
-      id: "calculator",
-      name: "Calculator",
-      description: "A web-based calculator application developed to showcase clean user interface design, DOM event handling, and arithmetic operation logic.",
-      techStack: ["HTML5", "CSS3", "JavaScript"],
-      github: "https://github.com/rnprahul/CodeAlpha_calculator",
-      liveDemo: null
     }
   ]
 };

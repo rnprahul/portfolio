@@ -1,305 +1,168 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { 
-  ExternalLink, 
   Github, 
-  Star, 
-  Brain, 
-  Sparkles, 
-  FileText, 
-  Users, 
-  Activity, 
-  ClipboardList 
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 
 export function Projects() {
-  const { latestWork, featuredProject, secondaryProjects } = portfolioData;
-
-  const getCapabilityIcon = (iconName) => {
-    switch (iconName) {
-      case 'Brain': return <Brain size={18} style={{ color: 'var(--accent-color)' }} />;
-      case 'Sparkles': return <Sparkles size={18} style={{ color: '#a855f7' }} />;
-      case 'FileText': return <FileText size={18} style={{ color: '#3b82f6' }} />;
-      case 'Users': return <Users size={18} style={{ color: '#10b981' }} />;
-      case 'Activity': return <Activity size={18} style={{ color: '#f59e0b' }} />;
-      case 'ClipboardList': return <ClipboardList size={18} style={{ color: '#ec4899' }} />;
-      default: return <Brain size={18} style={{ color: 'var(--accent-color)' }} />;
-    }
-  };
+  const projects = portfolioData.projects || [];
 
   return (
     <section className="section" id="projects">
       <div className="container">
         <div className="section-header">
-          <span className="section-subtitle">Practical Applications</span>
+          <span className="section-subtitle">Portfolio & Deployed Applications</span>
           <h2 className="section-title">Projects Showcase</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '680px', margin: '0.75rem auto 0', lineHeight: '1.6' }}>
+            Production-deployed web applications and software solutions. Click any project preview to launch the live application directly.
+          </p>
         </div>
 
-        {/* =========================================================================
-            LATEST WORK SECTION (Newest Deployments & Flagship Work)
-            ========================================================================= */}
-        {latestWork && latestWork.length > 0 && (
-          <div className="latest-work-section" style={{ marginBottom: '4rem' }}>
-            <div className="latest-work-header-bar">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <span className="latest-work-badge">
-                  <Sparkles size={14} /> LATEST WORK
-                </span>
-                <span className="latest-work-header-tag">
-                  Newest Releases
-                </span>
-              </div>
-            </div>
+        <div className="unified-projects-grid">
+          {projects.map((project, index) => {
+            const liveUrl = project.liveDemo;
+            const displayUrl = liveUrl 
+              ? liveUrl.replace('https://', '') 
+              : (project.github ? project.github.replace('https://github.com/', 'github.com/') : 'rahul-portfolio.dev');
 
-            <div className="latest-work-grid">
-              {latestWork.map((project) => (
-                <div key={project.id} className="glass-card latest-work-card">
-                  {/* Large Project Visual Preview */}
-                  {project.image && (
-                    <div className="latest-work-visual-col">
+            return (
+              <article key={project.id || index} className="glass-card unified-project-card">
+                {/* Visual Column / Interactive Browser Window Preview */}
+                <div className="project-visual-col">
+                  <a
+                    href={liveUrl || project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-preview-link"
+                    aria-label={`Open live demo for ${project.name}`}
+                  >
+                    <div className="preview-window-frame">
+                      {/* Browser Header Bar */}
+                      <div className="preview-window-bar">
+                        <div className="window-dots">
+                          <span className="dot dot-red"></span>
+                          <span className="dot dot-yellow"></span>
+                          <span className="dot dot-green"></span>
+                        </div>
+                        
+                        <div className="preview-url-bar" title={liveUrl || project.github}>
+                          <span className="url-lock-icon">🔒</span>
+                          <span className="url-text">{displayUrl}</span>
+                        </div>
+
+                        {liveUrl ? (
+                          <div className="live-status-pill">
+                            <span className="live-pulse-dot"></span>
+                            LIVE DEMO
+                          </div>
+                        ) : (
+                          <div className="live-status-pill github-status-pill">
+                            GITHUB
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Image Preview Container with Hover Launch Prompt */}
+                      <div className="preview-img-wrapper">
+                        <img
+                          src={project.image}
+                          alt={`${project.name} preview`}
+                          className="preview-img"
+                          loading="lazy"
+                        />
+                        <div className="preview-hover-glow"></div>
+                        <div className="preview-hover-overlay">
+                          <span className="launch-badge">
+                            Launch Website <ExternalLink size={14} />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                {/* Project Info Column */}
+                <div className="project-info-col">
+                  <div className="project-info-header">
+                    <div className="project-badge-row">
+                      <span className="project-category-badge">
+                        <Sparkles size={12} /> {project.badge || 'PROJECT'}
+                      </span>
+                      {project.category && (
+                        <span className="project-category-sub">
+                          {project.category}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="project-card-title">
                       <a
-                        href={project.liveDemo || project.github}
+                        href={liveUrl || project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="latest-work-preview-link"
-                        aria-label={`Open live demo for ${project.name}`}
+                        className="project-title-link"
                       >
-                        <div className="preview-window-frame">
-                          <div className="preview-window-bar">
-                            <div className="window-dots">
-                              <span className="dot dot-red"></span>
-                              <span className="dot dot-yellow"></span>
-                              <span className="dot dot-green"></span>
-                            </div>
-                            <div className="preview-url-bar">
-                              <span className="url-lock-icon">🔒</span>
-                              <span className="url-text">
-                                {project.liveDemo
-                                  ? project.liveDemo.replace('https://', '')
-                                  : 'github.com/rnprahul'}
-                              </span>
-                            </div>
-                            {project.liveDemo && (
-                              <div className="live-status-pill">
-                                <span className="live-pulse-dot"></span>
-                                LIVE DEMO
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="preview-img-wrapper">
-                            <img
-                              src={project.image}
-                              alt={`${project.name} preview`}
-                              className="preview-img"
-                              loading="lazy"
-                            />
-                            <div className="preview-hover-glow"></div>
-                          </div>
-                        </div>
+                        {project.name}
                       </a>
-                    </div>
-                  )}
+                    </h3>
 
-                  {/* Project Info Column */}
-                  <div className="latest-work-info-col">
-                    <div className="latest-work-info-header">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                        <span className="status-pill-new">
-                          <Sparkles size={12} /> {project.badge || 'NEW'}
-                        </span>
-                        <span className="latest-work-category-label">
-                          Interactive Web Application
-                        </span>
-                      </div>
-
-                      <h3 className="latest-work-title">
-                        <a
-                          href={project.liveDemo || project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="latest-work-title-link"
-                        >
-                          {project.name}
-                        </a>
-                      </h3>
-
-                      {project.tagline && (
-                        <p className="latest-work-tagline">
-                          {project.tagline}
-                        </p>
-                      )}
-                    </div>
-
-                    <p className="latest-work-description">
-                      {project.description}
-                    </p>
-
-                    {/* Highlights breakdown */}
-                    {project.highlights && project.highlights.length > 0 && (
-                      <div className="latest-work-highlights">
-                        {project.highlights.map((item, hIdx) => (
-                          <div key={hIdx} className="highlight-item">
-                            <span className="highlight-bullet">✦</span>
-                            <span className="highlight-text">{item}</span>
-                          </div>
-                        ))}
-                      </div>
+                    {project.tagline && (
+                      <p className="project-card-tagline">
+                        {project.tagline}
+                      </p>
                     )}
-
-                    {/* Tech Stack */}
-                    <div className="latest-work-tech-stack">
-                      {project.techStack.map((tech, tIdx) => (
-                        <span key={tIdx} className="tag-pill latest-tech-pill">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Action Buttons: GitHub Only */}
-                    <div className="latest-work-actions">
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn btn-secondary"
-                          id={`latest-work-github-${project.id}`}
-                        >
-                          GitHub Repository <Github size={16} />
-                        </a>
-                      )}
-                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
-        {/* FEATURED SPOTLIGHT: NEXAMIND */}
-        <div className="glass-card featured-spotlight">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.2rem', marginBottom: '1.2rem' }}>
-            <div>
-              <span className="cmd-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                <Star size={14} fill="currentColor" /> PRIMARY FEATURED PROJECT
-              </span>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', fontWeight: '800', marginTop: '0.6rem', marginBottom: '0.4rem' }}>
-                {featuredProject.name}
-              </h3>
-              <p style={{ color: 'var(--accent-color)', fontSize: '1.05rem', fontFamily: 'var(--font-code)' }}>
-                {featuredProject.tagline}
-              </p>
-            </div>
-            
-            <div className="spotlight-header-actions" style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
-              {featuredProject.liveDemo && (
-                <a href={featuredProject.liveDemo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  Live Demo <ExternalLink size={16} />
-                </a>
-              )}
-              {featuredProject.github && (
-                <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                  GitHub Repository <Github size={16} />
-                </a>
-              )}
-            </div>
-          </div>
-
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.02rem', lineHeight: '1.7', marginBottom: '1.8rem' }}>
-            {featuredProject.description}
-          </p>
-
-          {/* Core Capabilities Breakdown */}
-          {featuredProject.capabilities && (
-            <>
-              <h4 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '1rem', fontFamily: 'var(--font-heading)' }}>
-                Core Capabilities
-              </h4>
-              <div className="capabilities-grid">
-                {featuredProject.capabilities.map((cap, idx) => (
-                  <div key={idx} className="capability-card">
-                    <div className="capability-title">
-                      {getCapabilityIcon(cap.icon)}
-                      {cap.title}
-                    </div>
-                    <ul className="capability-list">
-                      {cap.points.map((pt, ptIdx) => (
-                        <li key={ptIdx}>{pt}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {/* Tech Stack Pills */}
-          <div style={{ marginTop: '1.8rem', paddingTop: '1.2rem', borderTop: '1px solid var(--border-color)' }}>
-            <h4 style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.8rem', fontFamily: 'var(--font-code)' }}>
-              Technologies Used
-            </h4>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
-              {featuredProject.techStack.map((tech, techIdx) => (
-                <span key={techIdx} className="tag-pill" style={{ background: 'rgba(99, 102, 241, 0.1)', borderColor: 'rgba(99, 102, 241, 0.25)' }}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* SECONDARY PROJECTS */}
-        <div style={{ marginTop: '3.5rem' }}>
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '1.2rem' }}>
-            Secondary Projects
-          </h3>
-
-          <div className="secondary-projects-grid">
-            {secondaryProjects.map((project, idx) => (
-              <div key={idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>
-                    {project.name}
-                  </h4>
-                  {project.tagline && (
-                    <p style={{ color: 'var(--accent-color)', fontSize: '0.9rem', fontFamily: 'var(--font-code)', marginBottom: '0.6rem' }}>
-                      {project.tagline}
-                    </p>
-                  )}
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.94rem', lineHeight: '1.6', marginBottom: '1.4rem' }}>
+                  <p className="project-card-description">
                     {project.description}
                   </p>
-                  
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                    {project.techStack.map((t, tIdx) => (
-                      <span key={tIdx} className="tag-pill">{t}</span>
+
+                  {/* Feature Highlights */}
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="project-highlights-box">
+                      {project.highlights.map((item, hIdx) => (
+                        <div key={hIdx} className="highlight-item">
+                          <span className="highlight-bullet">✦</span>
+                          <span className="highlight-text">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Tech Stack Pills */}
+                  <div className="project-tech-stack">
+                    {project.techStack.map((tech, tIdx) => (
+                      <span key={tIdx} className="tag-pill project-tech-pill">
+                        {tech}
+                      </span>
                     ))}
                   </div>
-                </div>
 
-                <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
-                  {project.liveDemo ? (
-                    <>
-                      <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
-                        Live Demo <ExternalLink size={16} />
+                  {/* Action Buttons: GitHub only since image directly opens the live app */}
+                  <div className="project-actions">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                        id={`project-github-${project.id}`}
+                      >
+                        GitHub Repository <Github size={16} />
                       </a>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ flex: 1, justifyContent: 'center' }}>
-                        GitHub <Github size={16} />
-                      </a>
-                    </>
-                  ) : (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
-                      View Code on GitHub <Github size={16} />
-                    </a>
-                  )}
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
+
+export default Projects;
 
