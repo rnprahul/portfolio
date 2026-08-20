@@ -26,26 +26,108 @@ export const portfolioData = {
     { label: "Internship", value: "MERN Stack", suffix: "" }
   ],
 
-  skills: [
+  journeySignals: [
     {
-      category: "Frontend",
-      description: "Building responsive & user-focused web interfaces",
-      items: ["HTML5", "CSS3", "JavaScript", "React", "Vite", "Bootstrap"]
+      id: "bca",
+      title: "BCA Graduate",
+      secondaryText: "Bachelor of Computer Applications",
+      icon: "GraduationCap"
     },
     {
-      category: "Backend & Databases",
-      description: "Authentication, database management & cloud hosting",
-      items: ["Firebase", "Cloud Firestore", "Firebase Auth", "Firebase Hosting", "MongoDB", "SQL"]
+      id: "software-dev",
+      title: "Software & Web Developer",
+      secondaryText: "Building practical web applications",
+      icon: "Code2"
     },
     {
-      category: "Programming Languages",
-      description: "Core software engineering & application logic",
-      items: ["JavaScript", "Python", "SQL"]
+      id: "react-dev",
+      title: "React Developer",
+      secondaryText: "React • Vite • JavaScript",
+      icon: "Atom"
     },
     {
-      category: "Development Tools",
-      description: "Version control & environment workflow",
-      items: ["Git", "GitHub", "VS Code", "Postman"]
+      id: "cloud-deployed",
+      title: "Cloud Deployed",
+      secondaryText: "Vercel • Cloudflare • Firebase",
+      icon: "Cloud"
+    },
+    {
+      id: "projects",
+      title: "Multiple Projects",
+      secondaryText: "Building and deploying real-world projects",
+      icon: "Boxes"
+    },
+    {
+      id: "opportunities",
+      title: "Open to Opportunities",
+      secondaryText: "Software Developer & Web Developer roles",
+      icon: "Sparkles",
+      statusDot: true
+    }
+  ],
+
+  technologies: [
+    // Primary / Core Highlights
+    { name: "React", category: "frontend", tier: "primary" },
+    { name: "JavaScript", category: "frontend", tier: "primary" },
+    { name: "Firebase", category: "backend", tier: "primary" },
+    { name: "MongoDB", category: "backend", tier: "primary" },
+    { name: "Vite", category: "frontend", tier: "primary" },
+    { name: "GitHub", category: "tools", tier: "primary" },
+    { name: "HTML5", category: "frontend", tier: "primary" },
+    { name: "CSS3", category: "frontend", tier: "primary" },
+
+    // Secondary Tier
+    { name: "Node.js", category: "backend", tier: "secondary" },
+    { name: "Express.js", category: "backend", tier: "secondary" },
+    { name: "Cloud Firestore", category: "backend", tier: "secondary" },
+    { name: "Firebase Authentication", category: "backend", tier: "secondary" },
+    { name: "MongoDB Atlas", category: "backend", tier: "secondary" },
+    { name: "Git", category: "tools", tier: "secondary" },
+    { name: "Vercel", category: "tools", tier: "secondary" },
+    { name: "Render", category: "tools", tier: "secondary" },
+    { name: "Cloudflare", category: "backend", tier: "secondary" },
+    { name: "REST APIs", category: "backend", tier: "secondary" },
+
+    // Practical & Supporting Skills
+    { name: "Bootstrap", category: "frontend", tier: "tertiary" },
+    { name: "React Router", category: "frontend", tier: "tertiary" },
+    { name: "Responsive Web Design", category: "frontend", tier: "tertiary" },
+    { name: "UI/UX", category: "frontend", tier: "tertiary" },
+    { name: "Component-Based Architecture", category: "frontend", tier: "tertiary" },
+    { name: "REST API Integration", category: "frontend", tier: "tertiary" },
+    { name: "Firebase Storage", category: "backend", tier: "tertiary" },
+    { name: "Firebase Hosting", category: "backend", tier: "tertiary" },
+    { name: "MongoDB Compass", category: "backend", tier: "tertiary" },
+    { name: "CORS", category: "backend", tier: "tertiary" },
+    { name: "Cloudflare Pages", category: "backend", tier: "tertiary" },
+    { name: "VS Code", category: "tools", tier: "tertiary" },
+    { name: "Postman", category: "tools", tier: "tertiary" },
+    { name: "npm", category: "tools", tier: "tertiary" }
+  ],
+
+  latestWork: [
+    {
+      id: "westeros-interactive-chronicles",
+      name: "Westeros Interactive Chronicles",
+      tagline: "Immersive Interactive Archive & Living Citadel Map of Westeros",
+      badge: "LATEST WORK",
+      description: "An immersive interactive archive of Westeros featuring cinematic UI, interactive maps, Great Houses, dragons, and historical exploration.",
+      image: "/assets/westeros-preview.jpg",
+      techStack: [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Lucide Icons",
+        "Cloudflare Pages"
+      ],
+      highlights: [
+        "Interactive Citadel living cartography map & entity intelligence graph",
+        "Cinematic Iron Throne succession lineage & 20+ dragon vault statistics"
+      ],
+      github: "https://github.com/rnprahul/westeros-interactive-chronicles",
+      liveDemo: "https://westeros-interactive-chronicles.pages.dev"
     }
   ],
 

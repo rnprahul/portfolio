@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 
 export function Projects() {
-  const { featuredProject, secondaryProjects } = portfolioData;
+  const { latestWork, featuredProject, secondaryProjects } = portfolioData;
 
   const getCapabilityIcon = (iconName) => {
     switch (iconName) {
@@ -34,6 +34,148 @@ export function Projects() {
           <span className="section-subtitle">Practical Applications</span>
           <h2 className="section-title">Projects Showcase</h2>
         </div>
+
+        {/* =========================================================================
+            LATEST WORK SECTION (Newest Deployments & Flagship Work)
+            ========================================================================= */}
+        {latestWork && latestWork.length > 0 && (
+          <div className="latest-work-section" style={{ marginBottom: '4rem' }}>
+            <div className="latest-work-header-bar">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <span className="latest-work-badge">
+                  <Sparkles size={14} /> LATEST WORK
+                </span>
+                <span className="latest-work-header-tag">
+                  Newest Releases
+                </span>
+              </div>
+            </div>
+
+            <div className="latest-work-grid">
+              {latestWork.map((project) => (
+                <div key={project.id} className="glass-card latest-work-card">
+                  {/* Large Project Visual Preview */}
+                  {project.image && (
+                    <div className="latest-work-visual-col">
+                      <a
+                        href={project.liveDemo || project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="latest-work-preview-link"
+                        aria-label={`Open live demo for ${project.name}`}
+                      >
+                        <div className="preview-window-frame">
+                          <div className="preview-window-bar">
+                            <div className="window-dots">
+                              <span className="dot dot-red"></span>
+                              <span className="dot dot-yellow"></span>
+                              <span className="dot dot-green"></span>
+                            </div>
+                            <div className="preview-url-bar">
+                              <span className="url-lock-icon">🔒</span>
+                              <span className="url-text">
+                                {project.liveDemo
+                                  ? project.liveDemo.replace('https://', '')
+                                  : 'github.com/rnprahul'}
+                              </span>
+                            </div>
+                            {project.liveDemo && (
+                              <div className="live-status-pill">
+                                <span className="live-pulse-dot"></span>
+                                LIVE DEMO
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="preview-img-wrapper">
+                            <img
+                              src={project.image}
+                              alt={`${project.name} preview`}
+                              className="preview-img"
+                              loading="lazy"
+                            />
+                            <div className="preview-hover-glow"></div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  )}
+
+                  {/* Project Info Column */}
+                  <div className="latest-work-info-col">
+                    <div className="latest-work-info-header">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+                        <span className="status-pill-new">
+                          <Sparkles size={12} /> {project.badge || 'NEW'}
+                        </span>
+                        <span className="latest-work-category-label">
+                          Interactive Web Application
+                        </span>
+                      </div>
+
+                      <h3 className="latest-work-title">
+                        <a
+                          href={project.liveDemo || project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="latest-work-title-link"
+                        >
+                          {project.name}
+                        </a>
+                      </h3>
+
+                      {project.tagline && (
+                        <p className="latest-work-tagline">
+                          {project.tagline}
+                        </p>
+                      )}
+                    </div>
+
+                    <p className="latest-work-description">
+                      {project.description}
+                    </p>
+
+                    {/* Highlights breakdown */}
+                    {project.highlights && project.highlights.length > 0 && (
+                      <div className="latest-work-highlights">
+                        {project.highlights.map((item, hIdx) => (
+                          <div key={hIdx} className="highlight-item">
+                            <span className="highlight-bullet">✦</span>
+                            <span className="highlight-text">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Tech Stack */}
+                    <div className="latest-work-tech-stack">
+                      {project.techStack.map((tech, tIdx) => (
+                        <span key={tIdx} className="tag-pill latest-tech-pill">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Action Buttons: GitHub Only */}
+                    <div className="latest-work-actions">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-secondary"
+                          id={`latest-work-github-${project.id}`}
+                        >
+                          GitHub Repository <Github size={16} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* FEATURED SPOTLIGHT: NEXAMIND */}
         <div className="glass-card featured-spotlight">

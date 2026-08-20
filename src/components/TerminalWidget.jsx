@@ -114,7 +114,7 @@ console.log(\`Hi! I build practical web apps as a \${dev.role}\`);`,
       case 'skills':
         newLines.push({
           type: 'runResult',
-          text: `> python3 skills.py\n✓ Frontend: React, JS, HTML/CSS, Bootstrap\n✓ Backend & DB: Firebase, Firestore, MongoDB, SQL\n✓ Languages: JavaScript, Python, SQL`
+          text: `> cat tech-stack.json\n✓ Frontend: React, JavaScript, Vite, HTML5, CSS3, Bootstrap, React Router\n✓ Backend & Cloud: Firebase, Firestore, MongoDB, Node.js, Express.js, Cloudflare\n✓ Tools & Deployment: GitHub, Git, Vercel, Render, Postman, VS Code`
         });
         break;
 

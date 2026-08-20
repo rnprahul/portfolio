@@ -15,31 +15,56 @@ export function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Scroll Reveal Observer with smooth 1.4s transition
-    const observerCallback = (entries) => {
+    // Robust, fail-safe Scroll Reveal Observer for all screen sizes
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.section, .stats-grid').forEach(el => {
+        el.classList.add('reveal-visible');
+      });
+      return;
+    }
+
+    const observerCallback = (entries, observer) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        // Trigger as soon as the element top approaches or enters the viewport
+        if (entry.isIntersecting || entry.intersectionRatio > 0) {
           entry.target.classList.add('reveal-visible');
+          // Once revealed, unobserve to prevent flickering or disappearing on mobile
+          observer.unobserve(entry.target);
         }
       });
     };
 
+    // Use a lightweight threshold and positive root margin for responsive reliability
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.18
+      rootMargin: '0px 0px 100px 0px',
+      threshold: 0.01
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     const targets = document.querySelectorAll('.section, .stats-grid');
     targets.forEach(target => {
-      target.classList.add('scroll-reveal');
-      observer.observe(target);
+      // Check if already in/near viewport on initial load
+      const rect = target.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 150 && rect.bottom > -50) {
+        target.classList.add('reveal-visible');
+      } else {
+        target.classList.add('scroll-reveal');
+        observer.observe(target);
+      }
     });
 
+    // Fail-safe timeout to ensure all sections are revealed regardless of scroll position or network latency
+    const fallbackTimer = setTimeout(() => {
+      targets.forEach(target => {
+        target.classList.add('reveal-visible');
+      });
+    }, 2000);
+
     return () => {
-      targets.forEach(target => observer.unobserve(target));
+      clearTimeout(fallbackTimer);
+      observer.disconnect();
     };
   }, []);
 
