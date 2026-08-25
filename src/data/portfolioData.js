@@ -108,6 +108,32 @@ export const portfolioData = {
 
   projects: [
     {
+      id: "omniverse-marvel-dc",
+      name: "OMNIVERSE",
+      tagline: "Two Universes. One Experience. Infinite Stories.",
+      badge: "INTERACTIVE",
+      category: "Marvel × DC Interactive Universe",
+      description: "OMNIVERSE is a cinematic interactive Marvel × DC universe experience featuring dynamic universe switching, character dossiers, cross-universe battle simulations, relationship networks, power comparisons, multiverse exploration, iconic locations, timelines, and immersive visual effects.",
+      image: "/assets/omniverse-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "HTML5 Canvas",
+        "Web Audio API",
+        "CSS",
+        "Lucide React",
+        "Vercel"
+      ],
+      highlights: [
+        "Cinematic Marvel ↔ DC universe switching with immersive visual transitions",
+        "Interactive character vault, dossiers, relationship web & multiverse exploration",
+        "Deterministic cross-universe Battle Arena with animated winner simulations"
+      ],
+      github: "https://github.com/rnprahul/Omniverse-Marvel-DC",
+      liveDemo: "https://omniverse-marvel-dc.vercel.app"
+    },
+    {
       id: "nexa-mind",
       name: "NexaMind",
       tagline: "Enterprise AI Knowledge & Governance Platform",
