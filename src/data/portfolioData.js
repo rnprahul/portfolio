@@ -266,6 +266,28 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/westeros-interactive-chronicles",
       liveDemo: "https://westeros-interactive-chronicles.pages.dev"
+    },
+    {
+      id: "unitwise-converter",
+      name: "UnitWise Converter",
+      tagline: "Fast, accurate and responsive multi-category unit conversion",
+      badge: "WEB APP",
+      category: "Unit Conversion Web Application",
+      description: "Fast, accurate and responsive unit conversion across 13 categories and 85+ standard units.",
+      image: "/assets/unitwise-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "LocalStorage"
+      ],
+      highlights: [
+        "13 Conversion Categories & 85+ Standard Units",
+        "Instant Client-Side Conversion & Formula Explanations",
+        "Conversion History & Favorites Persistence"
+      ],
+      github: "https://github.com/rnprahul/UnitWise-Converter",
+      liveDemo: "https://unit-wise-converter.vercel.app"
     }
   ]
 };
