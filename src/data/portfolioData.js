@@ -78,6 +78,7 @@ export const portfolioData = {
     { name: "CSS3", category: "frontend", tier: "primary" },
 
     // Secondary Tier
+    { name: "TypeScript", category: "frontend", tier: "secondary" },
     { name: "Node.js", category: "backend", tier: "secondary" },
     { name: "Express.js", category: "backend", tier: "secondary" },
     { name: "Cloud Firestore", category: "backend", tier: "secondary" },
@@ -288,6 +289,29 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/UnitWise-Converter",
       liveDemo: "https://unit-wise-converter.vercel.app"
+    },
+    {
+      id: "quizforge",
+      name: "QuizForge",
+      tagline: "Interactive Online Quiz Platform with Timed Challenges & Leaderboards",
+      badge: "WEB APP",
+      category: "Online Quiz Platform",
+      description: "An interactive online quiz platform with timed quizzes, multiple categories, difficulty levels, scoring, answer review, quiz history, favorites, and a local leaderboard.",
+      image: "/assets/quizforge-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS",
+        "LocalStorage"
+      ],
+      highlights: [
+        "Multiple quiz categories, difficulty modes & per-question countdown timers",
+        "Real-time dynamic scoring, accuracy tracking & detailed answer reviews",
+        "Local leaderboard, quiz history & favorite questions with LocalStorage persistence"
+      ],
+      github: "https://github.com/rnprahul/QuizForge",
+      liveDemo: "https://quiz-forge-tau-drab.vercel.app/"
     }
   ]
 };
