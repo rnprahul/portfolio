@@ -312,6 +312,30 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/QuizForge",
       liveDemo: "https://quiz-forge-tau-drab.vercel.app/"
+    },
+    {
+      id: "resumeforge",
+      name: "ResumeForge",
+      tagline: "Professional Resume Builder with Live A4 Preview & PDF Generation",
+      badge: "PRODUCTIVITY",
+      category: "Web Application / Productivity Tool",
+      description: "ResumeForge is a professional resume builder web application that enables users to enter comprehensive career details, customize templates and styling, preview resumes in real time, and generate polished, ATS-friendly A4 PDFs with complete client-side data privacy.",
+      image: "/assets/resumeforge-preview.png",
+      techStack: [
+        "React",
+        "Vite",
+        "JavaScript",
+        "CSS",
+        "Client-Side PDF",
+        "LocalStorage"
+      ],
+      highlights: [
+        "Real-time A4 resume preview with multi-template switching & accent color customization",
+        "Comprehensive career section editor, profile completeness meter & sample loader",
+        "Client-side PDF generation, print support & ATS-friendly layouts with total browser privacy"
+      ],
+      github: "https://github.com/rnprahul/ResumeForge",
+      liveDemo: "https://resume-forge-seven-tawny.vercel.app"
     }
   ]
 };
