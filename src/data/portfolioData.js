@@ -336,6 +336,31 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/ResumeForge",
       liveDemo: "https://resume-forge-seven-tawny.vercel.app"
+    },
+    {
+      id: "billmate",
+      name: "BillMate",
+      tagline: "A professional digital receipt generator for small businesses with automated tax & GST calculations.",
+      badge: "PRODUCTIVITY",
+      category: "Business / Productivity",
+      description: "BillMate is a professional, privacy-focused digital receipt generator built for small businesses. It allows users to create, customize, manage, print, and download professional receipts while automatically handling tax and GST calculations.",
+      image: "/assets/billmate-preview.png",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Client-Side State",
+        "PDF / Print",
+        "LocalStorage"
+      ],
+      highlights: [
+        "Digital receipt creation, custom templates & live formatted receipt preview",
+        "Automated GST & tax calculations with customer management & business settings",
+        "Print-ready layout support & client-side PDF generation with local privacy"
+      ],
+      github: "https://github.com/rnprahul/BillMate",
+      liveDemo: "https://billmate-beta.vercel.app/"
     }
   ]
 };
