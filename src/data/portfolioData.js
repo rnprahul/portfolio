@@ -240,6 +240,58 @@ export const portfolioData = {
       liveDemo: "https://kanban-task-board-nu.vercel.app/"
     },
     {
+      id: "codecanvas",
+      name: "CodeCanvas",
+      tagline: "Browser-Based HTML, CSS & JavaScript Editor",
+      badge: "DEVELOPER TOOL",
+      category: "Developer Tool / Browser IDE",
+      description: "CodeCanvas is a browser-based front-end development playground that allows users to write HTML, CSS, and JavaScript with dedicated CodeMirror editors, live preview, responsive preview modes, integrated developer console, local project persistence, templates, and standalone HTML export.",
+      image: "/assets/codecanvas-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "CodeMirror 6",
+        "Lucide React",
+        "LocalStorage",
+        "Iframe",
+        "Vercel"
+      ],
+      highlights: [
+        "Professional HTML, CSS & JavaScript editors powered by CodeMirror 6",
+        "Isolated live preview with responsive Desktop / Tablet / Mobile modes",
+        "Integrated developer console, LocalStorage persistence and HTML export"
+      ],
+      github: "https://github.com/rnprahul/CodeCanvas",
+      liveDemo: "https://code-canvas-plum.vercel.app/"
+    },
+    {
+      id: "gitscope",
+      name: "GitScope",
+      tagline: "GitHub Profile Analyzer",
+      badge: "DEVELOPER ANALYTICS",
+      category: "Developer Analytics / GitHub Profile Analyzer",
+      description: "GitScope is a modern browser-based GitHub profile analytics dashboard that transforms a public GitHub username into detailed developer insights, including repository statistics, programming-language distribution, repository health, top repositories, and recent activity.",
+      image: "/assets/gitscope-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Recharts",
+        "GitHub API",
+        "Vercel"
+      ],
+      highlights: [
+        "Real-time GitHub profile analysis & repository health metrics",
+        "Interactive programming-language distribution & star/fork statistics",
+        "Repository search, filtering, sorting & search history with LocalStorage"
+      ],
+      github: "https://github.com/rnprahul/GitScope",
+      liveDemo: "https://git-scope-six.vercel.app/"
+    },
+    {
       id: "quickkart",
       name: "QuickKart",
       tagline: "Full-Stack E-Commerce Store",

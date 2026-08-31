@@ -1692,7 +1692,7 @@ body {
   .skill-cloud-stage { min-height: 440px; padding: 2.5rem 1.8rem 1.8rem; }
   .skill-cloud-container { gap: 0.9rem 1.1rem; }
   .roles-grid, .capabilities-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .unified-projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .unified-projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .unified-project-card { padding: 1.6rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1700,6 +1700,8 @@ body {
 
 /* Mobile Devices (< 768px) */
 @media (max-width: 768px) {
+  .unified-projects-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .unified-project-card { padding: 1.3rem; }
   .container {
     padding: 0 1.2rem;
   }
