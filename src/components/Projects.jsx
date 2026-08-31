@@ -16,7 +16,7 @@ export function Projects() {
           <span className="section-subtitle">Portfolio & Deployed Applications</span>
           <h2 className="section-title">Projects Showcase</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '680px', margin: '0.75rem auto 0', lineHeight: '1.6' }}>
-            Production-deployed web applications and software solutions. Click any project preview to launch the live application directly.
+            Production-deployed web applications and software solutions. Click any project preview or live demo button to launch the application.
           </p>
         </div>
 
@@ -29,8 +29,39 @@ export function Projects() {
 
             return (
               <article key={project.id || index} className="glass-card unified-project-card">
-                {/* Visual Column / Interactive Browser Window Preview */}
-                <div className="project-visual-col">
+                {/* Project Header: Category Badge, Name, Subtitle */}
+                <div className="project-card-header">
+                  <div className="project-badge-row">
+                    <span className="project-category-badge">
+                      <Sparkles size={12} /> {project.badge || 'PROJECT'}
+                    </span>
+                    {project.category && (
+                      <span className="project-category-sub">
+                        {project.category}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="project-card-title">
+                    <a
+                      href={liveUrl || project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-title-link"
+                    >
+                      {project.name}
+                    </a>
+                  </h3>
+
+                  {project.tagline && (
+                    <p className="project-card-tagline">
+                      {project.tagline}
+                    </p>
+                  )}
+                </div>
+
+                {/* Interactive Browser Window Mockup Preview */}
+                <div className="project-visual-wrapper">
                   <a
                     href={liveUrl || project.github}
                     target="_blank"
@@ -64,7 +95,7 @@ export function Projects() {
                         )}
                       </div>
 
-                      {/* Image Preview Container with Hover Launch Prompt */}
+                      {/* Image Preview Container with Hover Glow */}
                       <div className="preview-img-wrapper">
                         <img
                           src={project.image}
@@ -75,7 +106,7 @@ export function Projects() {
                         <div className="preview-hover-glow"></div>
                         <div className="preview-hover-overlay">
                           <span className="launch-badge">
-                            Launch Website <ExternalLink size={14} />
+                            Launch Live App <ExternalLink size={14} />
                           </span>
                         </div>
                       </div>
@@ -83,38 +114,8 @@ export function Projects() {
                   </a>
                 </div>
 
-                {/* Project Info Column */}
-                <div className="project-info-col">
-                  <div className="project-info-header">
-                    <div className="project-badge-row">
-                      <span className="project-category-badge">
-                        <Sparkles size={12} /> {project.badge || 'PROJECT'}
-                      </span>
-                      {project.category && (
-                        <span className="project-category-sub">
-                          {project.category}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="project-card-title">
-                      <a
-                        href={liveUrl || project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-title-link"
-                      >
-                        {project.name}
-                      </a>
-                    </h3>
-
-                    {project.tagline && (
-                      <p className="project-card-tagline">
-                        {project.tagline}
-                      </p>
-                    )}
-                  </div>
-
+                {/* Project Info Body */}
+                <div className="project-card-body">
                   <p className="project-card-description">
                     {project.description}
                   </p>
@@ -131,7 +132,7 @@ export function Projects() {
                     </div>
                   )}
 
-                  {/* Tech Stack Pills */}
+                  {/* Tech Stack Badges */}
                   <div className="project-tech-stack">
                     {project.techStack.map((tech, tIdx) => (
                       <span key={tIdx} className="tag-pill project-tech-pill">
@@ -140,8 +141,19 @@ export function Projects() {
                     ))}
                   </div>
 
-                  {/* Action Buttons: GitHub only since image directly opens the live app */}
+                  {/* Action Buttons: Live Demo + GitHub */}
                   <div className="project-actions">
+                    {liveUrl && (
+                      <a
+                        href={liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                        id={`project-live-${project.id}`}
+                      >
+                        Live Demo <ExternalLink size={15} />
+                      </a>
+                    )}
                     {project.github && (
                       <a
                         href={project.github}
@@ -150,7 +162,7 @@ export function Projects() {
                         className="btn btn-secondary"
                         id={`project-github-${project.id}`}
                       >
-                        GitHub Repository <Github size={16} />
+                        GitHub Repository <Github size={15} />
                       </a>
                     )}
                   </div>
@@ -165,4 +177,3 @@ export function Projects() {
 }
 
 export default Projects;
-

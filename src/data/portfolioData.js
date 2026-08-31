@@ -191,6 +191,31 @@ export const portfolioData = {
       liveDemo: "https://taskflow-kohl-tau.vercel.app"
     },
     {
+      id: "chatnest",
+      name: "ChatNest",
+      tagline: "Real-Time Chat Application",
+      badge: "REAL-TIME COMMUNICATION",
+      category: "Real-Time Communication Platform",
+      description: "ChatNest is a modern real-time communication platform built with React, TypeScript, Firebase, and Vite. It provides instant chat rooms, real-time message synchronization, anonymous user access, online presence tracking, room discovery, shareable room links, and a polished responsive interface without requiring traditional account registration.",
+      image: "/assets/chatnest-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Firebase",
+        "Firestore",
+        "Firebase Authentication",
+        "Vercel"
+      ],
+      highlights: [
+        "Real-time messaging & multi-user sync powered by Firebase Firestore",
+        "Anonymous authentication, online presence tracking & live typing indicators",
+        "Instant chat room creation, public discovery & shareable invite links"
+      ],
+      github: "https://github.com/rnprahul/ChatNest",
+      liveDemo: "https://chat-nest-plum.vercel.app/"
+    },
+    {
       id: "quickkart",
       name: "QuickKart",
       tagline: "Full-Stack E-Commerce Store",

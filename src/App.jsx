@@ -14,6 +14,100 @@ import { Footer } from './components/Footer';
 export function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Smooth, Velocity-Controlled Scrolling (Reduced Scroll Speed & Fluid Momentum)
+  useEffect(() => {
+    let targetY = window.scrollY;
+    let currentY = window.scrollY;
+    let rafId = null;
+    let isRunning = false;
+
+    const maxScroll = () => Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    const onWheel = (e) => {
+      // Allow inner scrollable elements (e.g. terminal body, modals, code blocks) to scroll naturally
+      let el = e.target;
+      while (el && el !== document.body && el !== document.documentElement) {
+        const hasOverflow = el.scrollHeight > el.clientHeight;
+        const overflowStyle = window.getComputedStyle(el).overflowY;
+        if (hasOverflow && (overflowStyle === 'auto' || overflowStyle === 'scroll')) {
+          return;
+        }
+        el = el.parentElement;
+      }
+
+      // If inquiry modal is open, don't intercept body scrolling
+      if (document.querySelector('.modal-overlay.active')) return;
+
+      e.preventDefault();
+
+      // Damped scroll speed multiplier (0.55x) for a more controlled, relaxed scrolling pace
+      const scrollSpeedMultiplier = 0.55;
+      targetY += e.deltaY * scrollSpeedMultiplier;
+      targetY = Math.max(0, Math.min(targetY, maxScroll()));
+
+      if (!isRunning) {
+        isRunning = true;
+        rafId = requestAnimationFrame(animateScroll);
+      }
+    };
+
+    const animateScroll = () => {
+      const diff = targetY - currentY;
+      // Fluid linear interpolation with smooth easing damping
+      currentY += diff * 0.085;
+
+      if (Math.abs(diff) > 0.4) {
+        window.scrollTo(0, currentY);
+        rafId = requestAnimationFrame(animateScroll);
+      } else {
+        currentY = targetY;
+        window.scrollTo(0, currentY);
+        isRunning = false;
+      }
+    };
+
+    const onSyncScroll = () => {
+      if (!isRunning) {
+        currentY = window.scrollY;
+        targetY = window.scrollY;
+      }
+    };
+
+    // Controlled smooth scrolling for anchor link jumps
+    const onAnchorClick = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (href === '#' || !href) return;
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        e.preventDefault();
+        const headerOffset = 75;
+        const targetPos = Math.max(0, Math.min(
+          targetElement.getBoundingClientRect().top + window.scrollY - headerOffset,
+          maxScroll()
+        ));
+        
+        targetY = targetPos;
+        if (!isRunning) {
+          isRunning = true;
+          rafId = requestAnimationFrame(animateScroll);
+        }
+      }
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onSyncScroll, { passive: true });
+    document.addEventListener('click', onAnchorClick);
+
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('scroll', onSyncScroll);
+      document.removeEventListener('click', onAnchorClick);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   useEffect(() => {
     // Dynamic bidirectional Scroll Reveal Observer
     if (!('IntersectionObserver' in window)) {
@@ -97,4 +191,3 @@ export function App() {
 }
 
 export default App;
-
