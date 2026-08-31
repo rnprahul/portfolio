@@ -462,6 +462,30 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/BillMate",
       liveDemo: "https://billmate-beta.vercel.app/"
+    },
+    {
+      id: "quantumcalc",
+      name: "QuantumCalc",
+      tagline: "Next-Gen Mechanical Calculator",
+      badge: "INTERACTIVE",
+      category: "Interactive Web Application / Calculator",
+      description: "QuantumCalc is an interactive next-generation calculator featuring a tactile mechanical-keyboard interface, scientific mathematics, real-time unit conversion, interactive function graphing, calculation history, keyboard controls, synthesized audio feedback, and animated particle effects.",
+      image: "/assets/quantumcalc-preview.png",
+      techStack: [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Vite",
+        "Canvas API",
+        "Web Audio API"
+      ],
+      highlights: [
+        "Tactile 3D mechanical calculator interface with scientific math, roots & DEG/RAD modes",
+        "Real-time multi-category unit converter & interactive 2D mathematical function grapher",
+        "Synthesized Web Audio switch feedback, keyboard controls & ambient particle canvas"
+      ],
+      github: "https://github.com/rnprahul/Calculator",
+      liveDemo: "https://calculator-eight-tau-89.vercel.app/"
     }
   ]
 };
