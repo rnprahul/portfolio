@@ -216,6 +216,30 @@ export const portfolioData = {
       liveDemo: "https://chat-nest-plum.vercel.app/"
     },
     {
+      id: "kanban-task-board",
+      name: "Kanban Task Board",
+      tagline: "Plan. Move. Complete.",
+      badge: "PRODUCTIVITY",
+      category: "PRODUCTIVITY / TASK MANAGEMENT",
+      description: "A modern responsive Kanban task management application built with React and TypeScript. Users can create, edit, delete, search, filter, and organize tasks while moving them between To Do, In Progress, and Done using smooth drag-and-drop interactions.",
+      image: "/assets/kanban-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "dnd-kit",
+        "LocalStorage"
+      ],
+      highlights: [
+        "Drag-and-drop task management between To Do, In Progress, and Done with column reordering",
+        "Full task lifecycle with search, priority filtering, tags, due dates, and editing controls",
+        "Automatic LocalStorage persistence, dark & light themes, and touch-friendly responsive design"
+      ],
+      github: "https://github.com/rnprahul/KanbanTaskBoard",
+      liveDemo: "https://kanban-task-board-nu.vercel.app/"
+    },
+    {
       id: "quickkart",
       name: "QuickKart",
       tagline: "Full-Stack E-Commerce Store",
