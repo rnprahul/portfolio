@@ -1,176 +1,58 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { 
-  Github, 
-  Sparkles,
-  ExternalLink
-} from 'lucide-react';
+import { FeaturedGallery } from './projects/FeaturedGallery';
+import { MoreWorkGrid } from './projects/MoreWorkGrid';
+
+// Exactly 4 featured projects in precise required order
+const FEATURED_IDS = [
+  'nexa-mind',   // 01 - NexaMind
+  'quickkart',   // 02 - QuickKart
+  'codecanvas',  // 03 - CodeCanvas
+  'gitscope'     // 04 - GitScope
+];
 
 export function Projects() {
-  const projects = portfolioData.projects || [];
+  const allProjects = useMemo(() => portfolioData.projects || [], []);
+
+  // 1. Featured Projects in exact order: NexaMind, QuickKart, CodeCanvas, GitScope
+  const featuredProjects = useMemo(() => {
+    return FEATURED_IDS.map(id => allProjects.find(p => p.id === id)).filter(Boolean);
+  }, [allProjects]);
+
+  // 2. More Work Projects: All other projects (including OMNIVERSE), preserving original sequence
+  const moreWorkProjects = useMemo(() => {
+    const featuredIdSet = new Set(FEATURED_IDS);
+    return allProjects.filter(p => !featuredIdSet.has(p.id));
+  }, [allProjects]);
 
   return (
-    <section className="section" id="projects">
+    <section className="section projects-showcase-section" id="projects">
       <div className="container">
+        {/* Section Main Header */}
         <div className="section-header">
-          <span className="section-subtitle">Portfolio & Deployed Applications</span>
-          <h2 className="section-title">Projects Showcase</h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '680px', margin: '0.75rem auto 0', lineHeight: '1.6' }}>
-            Production-deployed web applications and software solutions. Click any project preview or live demo button to launch the application.
+          <span className="section-subtitle">PROJECTS & DEPLOYMENTS</span>
+          <h2 className="section-title">Things I've Built</h2>
+          <p className="section-header-lead">
+            A collection of production-ready applications, developer tools, and interactive experiences.
           </p>
         </div>
 
-        <div className="unified-projects-grid">
-          {projects.map((project, index) => {
-            const liveUrl = project.liveDemo;
-            const displayUrl = liveUrl 
-              ? liveUrl.replace('https://', '') 
-              : (project.github ? project.github.replace('https://github.com/', 'github.com/') : 'rahul-portfolio.dev');
+        {/* 1. Interactive 4-Project Featured Showcase Gallery */}
+        <FeaturedGallery 
+          featuredProjects={featuredProjects}
+        />
 
-            return (
-              <article key={project.id || index} className="glass-card unified-project-card">
-                {/* Project Header: Category Badge, Name, Subtitle */}
-                <div className="project-card-header">
-                  <div className="project-badge-row">
-                    <span className="project-category-badge">
-                      <Sparkles size={12} /> {project.badge || 'PROJECT'}
-                    </span>
-                    {project.category && (
-                      <span className="project-category-sub">
-                        {project.category}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="project-card-title">
-                    <a
-                      href={liveUrl || project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-title-link"
-                    >
-                      {project.name}
-                    </a>
-                  </h3>
-
-                  {project.tagline && (
-                    <p className="project-card-tagline">
-                      {project.tagline}
-                    </p>
-                  )}
-                </div>
-
-                {/* Interactive Browser Window Mockup Preview */}
-                <div className="project-visual-wrapper">
-                  <a
-                    href={liveUrl || project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-preview-link"
-                    aria-label={`Open live demo for ${project.name}`}
-                  >
-                    <div className="preview-window-frame">
-                      {/* Browser Header Bar */}
-                      <div className="preview-window-bar">
-                        <div className="window-dots">
-                          <span className="dot dot-red"></span>
-                          <span className="dot dot-yellow"></span>
-                          <span className="dot dot-green"></span>
-                        </div>
-                        
-                        <div className="preview-url-bar" title={liveUrl || project.github}>
-                          <span className="url-lock-icon">🔒</span>
-                          <span className="url-text">{displayUrl}</span>
-                        </div>
-
-                        {liveUrl ? (
-                          <div className="live-status-pill">
-                            <span className="live-pulse-dot"></span>
-                            LIVE DEMO
-                          </div>
-                        ) : (
-                          <div className="live-status-pill github-status-pill">
-                            GITHUB
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Image Preview Container with Hover Glow */}
-                      <div className="preview-img-wrapper">
-                        <img
-                          src={project.image}
-                          alt={`${project.name} preview`}
-                          className="preview-img"
-                          loading="lazy"
-                        />
-                        <div className="preview-hover-glow"></div>
-                        <div className="preview-hover-overlay">
-                          <span className="launch-badge">
-                            Launch Live App <ExternalLink size={14} />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-
-                {/* Project Info Body */}
-                <div className="project-card-body">
-                  <p className="project-card-description">
-                    {project.description}
-                  </p>
-
-                  {/* Feature Highlights */}
-                  {project.highlights && project.highlights.length > 0 && (
-                    <div className="project-highlights-box">
-                      {project.highlights.map((item, hIdx) => (
-                        <div key={hIdx} className="highlight-item">
-                          <span className="highlight-bullet">✦</span>
-                          <span className="highlight-text">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Tech Stack Badges */}
-                  <div className="project-tech-stack">
-                    {project.techStack.map((tech, tIdx) => (
-                      <span key={tIdx} className="tag-pill project-tech-pill">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons: Live Demo + GitHub */}
-                  <div className="project-actions">
-                    {liveUrl && (
-                      <a
-                        href={liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary"
-                        id={`project-live-${project.id}`}
-                      >
-                        Live Demo <ExternalLink size={15} />
-                      </a>
-                    )}
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-secondary"
-                        id={`project-github-${project.id}`}
-                      >
-                        GitHub Repository <Github size={15} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+        {/* Visual Architectural Divider */}
+        <div className="projects-section-divider">
+          <div className="divider-line"></div>
+          <div className="divider-glow-orb"></div>
+          <div className="divider-line"></div>
         </div>
+
+        {/* 2. Paginated 3x2 Grid for Remaining Projects */}
+        <MoreWorkGrid 
+          projects={moreWorkProjects}
+        />
       </div>
     </section>
   );

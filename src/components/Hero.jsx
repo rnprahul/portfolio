@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export function Hero({ onOpenModal }) {
@@ -73,9 +73,14 @@ export function Hero({ onOpenModal }) {
           <a href="#contact" className="btn btn-secondary">
             Contact Me
           </a>
-          <button onClick={onOpenModal} className="btn btn-outline">
-            <Sparkles size={16} /> Fast Inquiry
-          </button>
+          <a 
+            href="/Rahul-NP-Resume.pdf" 
+            download="Rahul-NP-Resume.pdf" 
+            className="btn btn-resume-glass"
+            aria-label="Download Rahul N P's Resume (PDF)"
+          >
+            My Resume <Download size={16} />
+          </a>
         </div>
       </div>
     </section>
