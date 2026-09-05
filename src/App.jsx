@@ -6,6 +6,7 @@ import { StatsRow } from './components/StatsRow';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
+import { InteractivePlayground } from './components/InteractivePlayground';
 import { TerminalWidget } from './components/TerminalWidget';
 import { Contact } from './components/Contact';
 import { Modal } from './components/Modal';
@@ -141,7 +142,7 @@ export function App() {
 
     // Target all major content sections, project cards, and interactive widgets
     const targets = document.querySelectorAll(
-      '.section:not(#hero), .section-header, .unified-project-card, .skill-cloud-stage, .about-grid, .terminal-window, .contact-grid, .hero-dock-wrapper'
+      '.section:not(#hero), .section-header, .unified-project-card, .playground-showcase-card, .skill-cloud-stage, .about-grid, .terminal-window, .contact-grid, .hero-dock-wrapper'
     );
 
     targets.forEach(target => {
@@ -178,6 +179,7 @@ export function App() {
         <About />
         <Skills />
         <Projects />
+        <InteractivePlayground />
         <TerminalWidget onOpenModal={() => setIsModalOpen(true)} />
         <Contact onOpenModal={() => setIsModalOpen(true)} />
       </main>

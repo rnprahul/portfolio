@@ -489,3 +489,68 @@ export const portfolioData = {
     }
   ]
 };
+
+export const playgroundData = {
+  id: "neon-drift",
+  name: "Neon Drift",
+  subtitle: "INTERACTIVE PLAYGROUND",
+  heading: "Playground Beyond the Usual",
+  lead: "Not everything I build is a dashboard. Neon Drift is a browser-based arcade experiment built around Canvas rendering, real-time game systems, procedural effects, and responsive controls.",
+  projectNumber: "INTERACTIVE / 01",
+  badge: "PLAYABLE EXPERIENCE",
+  category: "FUTURISTIC SURVIVAL ARCADE",
+  tagline: "Drift. Survive. Dominate.",
+  description: "A futuristic browser-based neon survival game where you pilot a spacecraft, dodge increasingly dangerous hazards, collect energy, build combos, and use tactical power-ups to chase your high score.",
+  controlHint: "Playable with keyboard, mouse, or touch.",
+  image: "/assets/neon-drift-preview.png",
+  alt: "Neon Drift futuristic neon survival game preview",
+  liveDemo: "https://neon-drift-drab.vercel.app/",
+  github: "https://github.com/rnprahul/NeonDrift",
+  techStack: [
+    "React",
+    "TypeScript",
+    "Vite",
+    "HTML5 Canvas",
+    "Web Audio API",
+    "LocalStorage"
+  ],
+  featureStrip: [
+    {
+      label: "CANVAS ENGINE",
+      desc: "Real-time 60fps rendering",
+      icon: "Cpu"
+    },
+    {
+      label: "REAL-TIME SYSTEMS",
+      desc: "Drift physics & combo scoring",
+      icon: "Zap"
+    },
+    {
+      label: "PROCEDURAL AUDIO",
+      desc: "Synthesized Web Audio FX",
+      icon: "Radio"
+    },
+    {
+      label: "DYNAMIC DIFFICULTY",
+      desc: "Tracking drones & elite hazards",
+      icon: "Flame"
+    }
+  ],
+  coreFeatures: [
+    "Real-time Canvas game engine",
+    "Smooth spacecraft movement",
+    "Drift / Dash mechanic",
+    "Dynamic difficulty progression",
+    "Energy + combo scoring",
+    "Near-miss rewards",
+    "Tracking drones and elite hazards",
+    "Overdrive / Shield / EMP power-ups",
+    "Procedural Web Audio",
+    "Particle effects",
+    "Local high-score persistence",
+    "Mouse + touch + keyboard controls"
+  ]
+};
+
+portfolioData.playground = playgroundData;
+
