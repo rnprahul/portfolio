@@ -490,67 +490,146 @@ export const portfolioData = {
   ]
 };
 
-export const playgroundData = {
-  id: "neon-drift",
-  name: "Neon Drift",
+export const playgroundSection = {
   subtitle: "INTERACTIVE PLAYGROUND",
   heading: "Playground Beyond the Usual",
-  lead: "Not everything I build is a dashboard. Neon Drift is a browser-based arcade experiment built around Canvas rendering, real-time game systems, procedural effects, and responsive controls.",
-  projectNumber: "INTERACTIVE / 01",
-  badge: "PLAYABLE EXPERIENCE",
-  category: "FUTURISTIC SURVIVAL ARCADE",
-  tagline: "Drift. Survive. Dominate.",
-  description: "A futuristic browser-based neon survival game where you pilot a spacecraft, dodge increasingly dangerous hazards, collect energy, build combos, and use tactical power-ups to chase your high score.",
-  controlHint: "Playable with keyboard, mouse, or touch.",
-  image: "/assets/neon-drift-preview.png",
-  alt: "Neon Drift futuristic neon survival game preview",
-  liveDemo: "https://neon-drift-drab.vercel.app/",
-  github: "https://github.com/rnprahul/NeonDrift",
-  techStack: [
-    "React",
-    "TypeScript",
-    "Vite",
-    "HTML5 Canvas",
-    "Web Audio API",
-    "LocalStorage"
-  ],
-  featureStrip: [
-    {
-      label: "CANVAS ENGINE",
-      desc: "Real-time 60fps rendering",
-      icon: "Cpu"
-    },
-    {
-      label: "REAL-TIME SYSTEMS",
-      desc: "Drift physics & combo scoring",
-      icon: "Zap"
-    },
-    {
-      label: "PROCEDURAL AUDIO",
-      desc: "Synthesized Web Audio FX",
-      icon: "Radio"
-    },
-    {
-      label: "DYNAMIC DIFFICULTY",
-      desc: "Tracking drones & elite hazards",
-      icon: "Flame"
-    }
-  ],
-  coreFeatures: [
-    "Real-time Canvas game engine",
-    "Smooth spacecraft movement",
-    "Drift / Dash mechanic",
-    "Dynamic difficulty progression",
-    "Energy + combo scoring",
-    "Near-miss rewards",
-    "Tracking drones and elite hazards",
-    "Overdrive / Shield / EMP power-ups",
-    "Procedural Web Audio",
-    "Particle effects",
-    "Local high-score persistence",
-    "Mouse + touch + keyboard controls"
-  ]
+  lead: "Not everything I build is a dashboard. This is where I experiment with games, interactive systems, real-time rendering, and ideas that are simply fun to play."
+};
+
+export const playgroundProjects = [
+  {
+    id: "neon-drift",
+    name: "Neon Drift",
+    titleWord1: "NEON",
+    titleWord2: "DRIFT",
+    projectNumber: "INTERACTIVE / 01",
+    badge: "PLAYABLE EXPERIENCE",
+    category: "FUTURISTIC SURVIVAL ARCADE",
+    tagline: "Drift. Survive. Dominate.",
+    description: "A futuristic browser-based neon survival game where you pilot a spacecraft, dodge increasingly dangerous hazards, collect energy, build combos, and use tactical power-ups to chase your high score.",
+    controlHint: "Keyboard, mouse, or touch controls.",
+    image: "/assets/neon-drift-preview.png",
+    alt: "Neon Drift futuristic neon survival game preview",
+    urlAddress: "neon-drift-drab.vercel.app",
+    fpsBadge: "60 FPS CANVAS",
+    liveDemo: "https://neon-drift-drab.vercel.app/",
+    github: "https://github.com/rnprahul/NeonDrift",
+    playLabel: "PLAY NEON DRIFT",
+    themeClass: "theme-neondrift",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "HTML5 Canvas",
+      "Web Audio API",
+      "LocalStorage"
+    ],
+    featureStrip: [
+      {
+        label: "CANVAS ENGINE",
+        desc: "Real-time 60fps rendering",
+        icon: "Cpu"
+      },
+      {
+        label: "REAL-TIME SYSTEMS",
+        desc: "Drift physics & combo scoring",
+        icon: "Zap"
+      },
+      {
+        label: "PROCEDURAL AUDIO",
+        desc: "Synthesized Web Audio FX",
+        icon: "Radio"
+      },
+      {
+        label: "DYNAMIC DIFFICULTY",
+        desc: "Tracking drones & elite hazards",
+        icon: "Flame"
+      }
+    ],
+    coreFeatures: [
+      "Real-time Canvas game engine",
+      "Smooth spacecraft movement",
+      "Drift / Dash mechanic",
+      "Dynamic difficulty progression",
+      "Energy + combo scoring",
+      "Near-miss rewards",
+      "Tracking drones and elite hazards",
+      "Overdrive / Shield / EMP power-ups",
+      "Procedural Web Audio",
+      "Particle effects",
+      "Local high-score persistence",
+      "Mouse + touch + keyboard controls"
+    ]
+  },
+  {
+    id: "timeloop",
+    name: "TimeLoop",
+    titleWord1: "TIME",
+    titleWord2: "LOOP",
+    projectNumber: "INTERACTIVE / 02",
+    badge: "PLAYABLE EXPERIENCE",
+    category: "TIME-LOOP PUZZLE GAME",
+    tagline: "You have 30 seconds. Make them count.",
+    description: "A futuristic time-loop puzzle game where every run becomes part of the next. Record your actions, work alongside your past selves, and solve increasingly complex puzzles before time runs out.",
+    controlHint: "Keyboard & mouse temporal controls.",
+    image: "/assets/timeloop-preview.png",
+    alt: "TimeLoop futuristic time-loop puzzle game preview",
+    urlAddress: "time-loop-puce.vercel.app",
+    fpsBadge: "60 HZ ENGINE",
+    liveDemo: "https://time-loop-puce.vercel.app/",
+    github: "https://github.com/rnprahul/TimeLoop",
+    playLabel: "PLAY TIMELOOP",
+    themeClass: "theme-timeloop",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "HTML5 Canvas",
+      "Web Audio API",
+      "LocalStorage"
+    ],
+    featureStrip: [
+      {
+        label: "DETERMINISTIC SIMULATION",
+        desc: "60Hz fixed-timestep gameplay",
+        icon: "Cpu"
+      },
+      {
+        label: "GHOST TIMELINES",
+        desc: "Past runs become playable ghosts",
+        icon: "History"
+      },
+      {
+        label: "TIME-LOOP PUZZLES",
+        desc: "Actions from previous loops become part of the solution",
+        icon: "RotateCcw"
+      },
+      {
+        label: "MULTI-LEVEL CAMPAIGN",
+        desc: "Three handcrafted puzzle levels",
+        icon: "Layers"
+      }
+    ],
+    coreFeatures: [
+      "Fixed 60Hz deterministic loop simulation",
+      "Ghost timeline playback engine",
+      "Cooperative self-play mechanics",
+      "Multi-stage pressure plate and gate puzzles",
+      "Lethal laser hazards & spatial conduits",
+      "Synchronized temporal audio & sound design",
+      "High-precision canvas graphics & particle effects",
+      "Responsive state management & level progression"
+    ]
+  }
+];
+
+export const playgroundData = {
+  ...playgroundSection,
+  projects: playgroundProjects,
+  ...playgroundProjects[0]
 };
 
 portfolioData.playground = playgroundData;
+portfolioData.playgroundProjects = playgroundProjects;
+
 
