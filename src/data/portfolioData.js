@@ -486,6 +486,31 @@ export const portfolioData = {
       ],
       github: "https://github.com/rnprahul/Calculator",
       liveDemo: "https://calculator-eight-tau-89.vercel.app/"
+    },
+    {
+      id: "typeflow",
+      name: "TypeFlow",
+      tagline: "TYPE FASTER. THINK FASTER.",
+      badge: "PRODUCTIVITY",
+      category: "TYPING SPEED / PRODUCTIVITY TOOL",
+      description: "TypeFlow is a polished responsive typing speed tester built with React and TypeScript, featuring real-time WPM analytics, accuracy tracking, mechanical keyboard visualization, performance ranking, grading, improvement tracking, personal bests, attempt history, and customizable visual themes.",
+      image: "/assets/typeflow-preview.png",
+      techStack: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS",
+        "Lucide React",
+        "LocalStorage",
+        "Web Audio API"
+      ],
+      highlights: [
+        "Real-time WPM, accuracy, error and typing performance analytics",
+        "Reactive on-screen mechanical keyboard with physical key press visualization",
+        "Performance ranking, grades, personal bests and improvement tracking"
+      ],
+      github: "https://github.com/rnprahul/TypeFlow",
+      liveDemo: "https://type-flow-theta.vercel.app/"
     }
   ]
 };
